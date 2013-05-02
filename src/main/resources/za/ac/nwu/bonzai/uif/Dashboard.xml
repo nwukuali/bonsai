@@ -1,0 +1,109 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--<bean id="Uif-GlobalApplicationHeader" parent="Uif-GlobalApplicationHeader-parentBean"-->
+          <!--p:template="/WEB-INF/ftl/kradSampleAppHeader.ftl" p:render="@{!renderedInLightBox}"-->
+          <!--p:templateName="demo_kradappheader"/>-->
+
+    <!--<bean id="Uif-GlobalApplicationFooter" parent="Uif-GlobalApplicationFooter-parentBean"-->
+          <!--p:template="/WEB-INF/ftl/kradSampleAppFooter.ftl" p:render="@{!renderedInLightBox}"-->
+          <!--p:templateName="demo_kradappfooter"/>-->
+
+    <!--<bean id="Uif-View" abstract="true" parent="Uif-View-parentBean">-->
+        <!--<property name="additionalCssFiles">-->
+            <!--<list>-->
+                <!--<value>css/jquery.tweet.css</value>-->
+                <!--<value>css/kradSampleApp.css</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="additionalScriptFiles">-->
+            <!--<list>-->
+                <!--<value>scripts/jquery.tweet.js</value>-->
+                <!--<value>scripts/kradSampleApp.js</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!-- SampleAppView defaults -->
+    <bean id="DashboardView" parent="Uif-FormView">
+        <!--<property name="additionalCssFiles">-->
+            <!--<list>-->
+                <!--<value>css/jquery.tweet.css</value>-->
+                <!--<value>css/kradSampleApp.css</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="additionalScriptFiles">-->
+            <!--<list>-->
+                <!--<value>scripts/jquery.tweet.js</value>-->
+                <!--<value>scripts/kradSampleApp.js</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="applicationHeader">-->
+            <!--<bean parent="Uif-GlobalApplicationHeader-parentBean"-->
+                  <!--p:template="/WEB-INF/ftl/kradSampleAppHeader.ftl" p:render="@{!renderedInLightBox}"-->
+                  <!--p:templateName="demo_kradappheader"/>-->
+        <!--</property>-->
+        <!--<property name="applicationFooter">-->
+            <!--<bean parent="Uif-GlobalApplicationFooter-parentBean"-->
+                  <!--p:template="/WEB-INF/ftl/kradSampleAppFooter.ftl" p:render="@{!renderedInLightBox}"-->
+                  <!--p:templateName="demo_kradappfooter"/>-->
+        <!--</property>-->
+        <property name="breadcrumbs.render" value="false"/>
+        <!--<property name="cssClasses">-->
+            <!--<list merge="true">-->
+                <!--<value>demo-sampleAppView</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <property name="singlePageView" value="true"/>
+        <property name="page">
+            <bean parent="Uif-Page">
+                <!--<property name="cssClasses">-->
+                    <!--<list merge="true">-->
+                        <!--<value>demo-sampleAppPage</value>-->
+                    <!--</list>-->
+                <!--</property>-->
+            </bean>
+        </property>
+        <!--<property name="viewHelperServiceClass" value="org.kuali.rice.krad.demo.uif.components.ComponentViewHelperServiceImpl"/>-->
+        <property name="formClass" value="za.ac.nwu.bonzai.uif.form.DashboardForm"/>
+
+        <property name="page.items">
+            <list>
+                <ref bean="Dashboard-SplashWrapper"/>
+                <!--<ref bean="KradSampleAppHome-Details"/>-->
+                <!--<ref bean="KradSampleAppHome-TestimonialsWrapper"/>-->
+            </list>
+        </property>
+    </bean>
+
+    <bean id="Dashboard-SplashWrapper" parent="Uif-VerticalBoxGroup">
+        <property name="cssClasses">
+            <list merge="true">
+                <value>dashboard-splashWrapper</value>
+            </list>
+        </property>
+        <property name="items">
+            <list>
+                <ref bean="Dashboard-SplashContent"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="Dashboard-SplashContent" parent="Uif-VerticalBoxSection">
+        <!--<property name="cssClasses">-->
+            <!--<list merge="true">-->
+                <!--<value>demo-sampleAppHome-splashContent</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <property name="items">
+            <list>
+                <bean id="KradSampleAppHome-TryItButton" parent="Uif-Action" p:cssClasses="demo-tryItButton"
+                      p:actionScript="document.location=jQuery('#Demo-LibraryLink').attr('href'); return false;"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
