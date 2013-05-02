@@ -15,15 +15,15 @@
  */
 package za.ac.nwu.bonzai;
 
-/**
- * Kuali Rice ArcheType Help
- *
- * A unit test implementation.
- *
- * Test for {@link MultiplicationProductServiceImpl}.
- */
-public class MultiplicationProductServiceImplTest extends AbstractProductServiceImplTest {
-    public ProductService createService() {
-        return new MultiplicationProductServiceImpl();
+
+import org.junit.Test;
+
+import static junit.framework.Assert.assertTrue;
+
+public class DummyTest {
+
+    @Test
+    public void testSomething(){
+        assertTrue(true);
     }
 }
