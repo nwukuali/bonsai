@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package za.ac.nwu.bonzai;
+package za.ac.nwu.bonsai;
 
 
 import org.junit.Test;

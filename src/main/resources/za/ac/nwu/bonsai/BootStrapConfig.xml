@@ -37,9 +37,9 @@ in configuration files outside of the project.
   <param name="krms.mode">LOCAL</param>
   <param name="ksb.mode">LOCAL</param>
 
-  <param name="module.name">bonzai</param>
-  <param name="application.id">bonzai</param>
-  <param name="app.context.name">bonzai</param>
+  <param name="module.name">bonsai</param>
+  <param name="application.id">bonsai</param>
+  <param name="app.context.name">bonsai</param>
 
   <param name="filter.login.class">org.kuali.rice.kew.web.DummyLoginFilter</param>
   <param name="filtermapping.login.1">/*</param>
@@ -50,12 +50,15 @@ in configuration files outside of the project.
   <param name="datasource.ojb.platform">MySQL</param>
 
     
-  <param name="datasource.url">jdbc:mysql://localhost:3306/bonzai</param>
-  <param name="datasource.username">bonzai</param>
-  <param name="datasource.password">bonzai</param>
+  <param name="datasource.url">jdbc:mysql://localhost:3306/bonsai</param>
+  <param name="datasource.username">bonsai</param>
+  <param name="datasource.password">bonsai</param>
 
   <param name="config.location">classpath:META-INF/common-config-defaults.xml</param>
   <param name="config.location">classpath:META-INF/common-config-locations.xml</param>
   <param name="config.location">${alt.config.location}</param>
-  <param name="version">bonzai :: ${project.version} :: ${kuali.build.timestamp}</param>
+  <param name="version">bonsai :: ${project.version} :: ${kuali.build.timestamp}</param>
+
+  <param name="rice.kr.additionalSpringFiles">classpath:org/kuali/rice/krad/devtools/datadictionary/ReloadingDataDictionarySpringBeans.xml</param>
+
 </config>

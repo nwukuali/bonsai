@@ -1,6 +1,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="properties" value="#{bootstrapConfig.properties}"/>
@@ -9,7 +10,7 @@
     <bean id="bootstrapConfig" class="org.kuali.rice.core.impl.config.property.ConfigFactoryBean">
         <property name="configLocations">
             <list>
-                <value>classpath:za/ac/nwu/bonzai/BootStrapConfig.xml</value>
+                <value>classpath:za/ac/nwu/bonsai/BootStrapConfig.xml</value>
             </list>
         </property>
     </bean>
@@ -27,9 +28,11 @@
     <import resource="classpath:org/kuali/rice/core/RiceDataSourceSpringBeans.xml"/>
     <import resource="classpath:org/kuali/rice/config/RiceSpringBeans.xml"/>
 
-    <import resource="classpath:za/ac/nwu/bonzai/ModuleBeans.xml"/>
+
+
+    <import resource="classpath:za/ac/nwu/bonsai/ModuleBeans.xml"/>
 
     <!--an application specific service-->
-    <!--<bean id="productService" class="za.ac.nwu.bonzai.MultiplicationProductServiceImpl" />-->
+    <!--<bean id="productService" class="za.ac.nwu.bonsai.MultiplicationProductServiceImpl" />-->
 
 </beans>

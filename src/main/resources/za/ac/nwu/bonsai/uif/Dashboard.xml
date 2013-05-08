@@ -3,9 +3,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!--<bean id="Uif-GlobalApplicationHeader" parent="Uif-GlobalApplicationHeader-parentBean"-->
-          <!--p:template="/WEB-INF/ftl/kradSampleAppHeader.ftl" p:render="@{!renderedInLightBox}"-->
-          <!--p:templateName="demo_kradappheader"/>-->
+
+
+
+    <bean id="Uif-GlobalApplicationHeader" parent="Uif-GlobalApplicationHeader-parentBean"
+          p:template="/WEB-INF/ftl/kradSampleAppHeader.ftl" p:render="@{!renderedInLightBox}"
+          p:templateName="demo_kradappheader"/>
 
     <!--<bean id="Uif-GlobalApplicationFooter" parent="Uif-GlobalApplicationFooter-parentBean"-->
           <!--p:template="/WEB-INF/ftl/kradSampleAppFooter.ftl" p:render="@{!renderedInLightBox}"-->
@@ -40,16 +43,7 @@
                 <!--<value>scripts/kradSampleApp.js</value>-->
             <!--</list>-->
         <!--</property>-->
-        <!--<property name="applicationHeader">-->
-            <!--<bean parent="Uif-GlobalApplicationHeader-parentBean"-->
-                  <!--p:template="/WEB-INF/ftl/kradSampleAppHeader.ftl" p:render="@{!renderedInLightBox}"-->
-                  <!--p:templateName="demo_kradappheader"/>-->
-        <!--</property>-->
-        <!--<property name="applicationFooter">-->
-            <!--<bean parent="Uif-GlobalApplicationFooter-parentBean"-->
-                  <!--p:template="/WEB-INF/ftl/kradSampleAppFooter.ftl" p:render="@{!renderedInLightBox}"-->
-                  <!--p:templateName="demo_kradappfooter"/>-->
-        <!--</property>-->
+
         <property name="breadcrumbs.render" value="false"/>
         <!--<property name="cssClasses">-->
             <!--<list merge="true">-->
@@ -67,7 +61,7 @@
             </bean>
         </property>
         <!--<property name="viewHelperServiceClass" value="org.kuali.rice.krad.demo.uif.components.ComponentViewHelperServiceImpl"/>-->
-        <property name="formClass" value="za.ac.nwu.bonzai.uif.form.DashboardForm"/>
+        <property name="formClass" value="za.ac.nwu.bonsai.uif.form.DashboardForm"/>
 
         <property name="page.items">
             <list>
@@ -86,7 +80,7 @@
         </property>
         <property name="items">
             <list>
-                <ref bean="Dashboard-SplashContent"/>
+                <bean parent="Uif-Label" p:labelText="Default Label"/>
             </list>
         </property>
     </bean>
@@ -101,7 +95,7 @@
         <property name="items">
             <list>
                 <bean id="KradSampleAppHome-TryItButton" parent="Uif-Action" p:cssClasses="demo-tryItButton"
-                      p:actionScript="document.location=jQuery('#Demo-LibraryLink').attr('href'); return false;"/>
+                      p:actionScript="document.location=jQuery('#Demo-LibraryLink').attr('href'); return false;" p:title="Test"/>
             </list>
         </property>
     </bean>

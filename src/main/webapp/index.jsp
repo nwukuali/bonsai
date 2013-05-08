@@ -1,1 +1,1 @@
-<% response.sendRedirect("krad/dashboard?viewId=DashboardView&methodToCall=start"); %>
+<% response.sendRedirect("mvc/dashboard?viewId=DashboardView&methodToCall=start"); %>

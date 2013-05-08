@@ -34,7 +34,7 @@ This file contains custom application specific web.xml content.
 
   <context-param>
     <param-name>web.bootstrap.spring.file</param-name>
-    <param-value>classpath:za/ac/nwu/bonzai/BootStrapSpringBeans.xml</param-value>
+    <param-value>classpath:za/ac/nwu/bonsai/BootStrapSpringBeans.xml</param-value>
   </context-param>
 
   <filter>
@@ -344,7 +344,7 @@ This file contains custom application specific web.xml content.
 
   <servlet-mapping>
     <servlet-name>krad</servlet-name>
-    <url-pattern>/krad/*</url-pattern>
+    <url-pattern>/mvc/*</url-pattern>
   </servlet-mapping>
 
   <session-config>

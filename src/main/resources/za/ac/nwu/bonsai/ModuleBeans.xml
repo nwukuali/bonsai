@@ -1,6 +1,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean id="moduleConfiguration" class="org.kuali.rice.krad.bo.ModuleConfiguration">
         <property name="namespaceCode" value="KR-BON"/>
@@ -10,7 +11,7 @@
                 <!--<value>classpath:org/kuali/rice/krad/demo/travel/fiscalofficer/FiscalOfficer.xml</value>-->
 
                 <!-- KRAD sample app - component library -->
-                <value>classpath:za/ac/nwu/bonzai/uif/Dashboard.xml</value>
+                <value>classpath:za/ac/nwu/bonsai/uif/Dashboard.xml</value>
             </list>
         </property>
         <property name="databaseRepositoryFilePaths">
@@ -20,7 +21,7 @@
         </property>
         <property name="packagePrefixes">
             <list>
-                <value>za.ac.nwu.bonzai</value>
+                <value>za.ac.nwu.bonsai</value>
             </list>
         </property>
         <property name="resourceBundleNames">
@@ -29,4 +30,5 @@
             </list>
         </property>
     </bean>
+
 </beans>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package za.ac.nwu.bonzai;
+package za.ac.nwu.bonsai;
 
 import java.net.URL;
 import java.net.HttpURLConnection;
@@ -36,7 +36,7 @@ import static org.junit.Assert.*;
 public class BasicApplicationIT {
     @Test
     public void testBasicApplicationStartup() throws Exception {
-        URL url = new URL("http://localhost:" + getPort() + "/bonzai");
+        URL url = new URL("http://localhost:" + getPort() + "/bonsai");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         assertEquals(url.toString(), 200, connection.getResponseCode());
     }
