@@ -54,6 +54,14 @@
     <database.groupId>mysql</database.groupId>
     <database.artifactId>${mysql.jdbc.artifactId}</database.artifactId>
     <database.version>${mysql.jdbc.version}</database.version>
+    <database.driver>${mysql.jdbc.driver}</database.driver> 
+    <database.url>${mysql.jdbc.url}</database.url>
+    
+    <database.name>bonzai</database.name>
+    <database.dba.username>root</database.dba.username>
+    <database.dba.password>root</database.dba.password>
+    <database.username>bonzai</database.username>
+    <database.password>bonzai</database.password>
     
         <!--dependency versions -->
     <jsp-api.version>2.1</jsp-api.version>
@@ -61,12 +69,13 @@
     <oracle.jdbc.version>10.2.0.3.0</oracle.jdbc.version>
     <oracle.jdbc.artifactId>ojdbc14</oracle.jdbc.artifactId>
     <mysql.jdbc.version>5.1.18</mysql.jdbc.version>
+    <mysql.jdbc.driver>com.mysql.jdbc.Driver</mysql.jdbc.driver>
     <mysql.jdbc.artifactId>mysql-connector-java</mysql.jdbc.artifactId>
+    <mysql.jdbc.url>jdbc:mysql://localhost:3306</mysql.jdbc.url>
 
     <rice.version>2.3.0-M1</rice.version>
     <jaxb-impl.version>2.2.6</jaxb-impl.version>
     <servlet-api.version>2.5</servlet-api.version>
-    <jaxb-impl.version>2.2.6</jaxb-impl.version>
 
     <!--plugin versions -->
     <!--
@@ -79,6 +88,8 @@
     <plugin.failsafe.version>2.14</plugin.failsafe.version>
     <plugin.war.version>2.3</plugin.war.version>
     <plugin.jetty.version>8.1.7.v20120910</plugin.jetty.version>
+    <plugin.sql.maven.version>1.4</plugin.sql.maven.version>
+    <plugin.liquibase.version>2.0.5</plugin.liquibase.version>
 
     <!-- other properties -->
     <jetty.port>8080</jetty.port>
@@ -194,6 +205,75 @@
         </dependencies>
       </plugin>
 
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sql-maven-plugin</artifactId>
+				<version>${plugin.sql.maven.version}</version>
+				<configuration>
+					<driver>${database.driver}</driver>
+					<url>${database.url}</url>
+					<username>${database.dba.username}</username>
+					<password>${database.dba.password}</password>
+				</configuration>
+				<executions>
+					<execution>
+						<id>init-db</id>
+						<phase>none</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<srcFiles>
+								<srcFile>${basedir}\src\main\resources\za\ac\nwu\bonzai\sql\rice-master-db\rice-db-master.sql</srcFile>
+							</srcFiles>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>${database.groupId}</groupId>
+						<artifactId>${database.artifactId}</artifactId>
+						<version>${database.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>${plugin.liquibase.version}</version>
+				<configuration>
+					<driver>${database.driver}</driver>
+					<url>${database.url}/${database.name}</url>
+					<username>${database.username}</username>
+					<password>${database.username}</password>
+					<changeLogFile>${basedir}/src/main/resources/za/ac/nwu/bonzai/liquibase/changelog/changelog-master.xml</changeLogFile>
+				</configuration>
+				<executions>
+					<execution>
+						<id>drop-db</id>
+						<phase>none</phase>
+						<goals>
+							<goal>dropAll</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>changelog-master</id>
+						<phase>none</phase>
+						<goals>
+							<goal>update</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>${database.groupId}</groupId>
+						<artifactId>${database.artifactId}</artifactId>
+						<version>${database.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
     </plugins>
   </build>
 
@@ -299,6 +379,68 @@
         </plugins>
       </build>
     </profile>
+
+		<!-- 
+		This creates the database using rice-db-master.sql
+		This should be run the first time that the bozai database is created, after this the refresh-db can
+		be used, since the liquibase plugin needs to have a existing database to run on.
+		-->
+		<profile>
+			<id>initialize-db</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>sql-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>init-db</id>
+								<phase>initialize</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>refresh-db</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.liquibase</groupId>
+						<artifactId>liquibase-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>drop-db</id>
+								<phase>clean</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>sql-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>init-db</id>
+								<phase>initialize</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.liquibase</groupId>
+						<artifactId>liquibase-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>changelog-master</id>
+								<phase>initialize</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
   </profiles>
 
   <dependencies>
@@ -549,12 +691,6 @@
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-impl</artifactId>
-      <version>${jaxb-impl.version}</version>
     </dependency>
 
   </dependencies>
