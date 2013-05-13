@@ -58,8 +58,8 @@
     <database.url>${mysql.jdbc.url}</database.url>
     
     <database.name>bonzai</database.name>
-    <database.dba.username>root</database.dba.username>
-    <database.dba.password>root</database.dba.password>
+    <database.dba.username></database.dba.username>
+    <database.dba.password></database.dba.password>
     <database.username>bonzai</database.username>
     <database.password>bonzai</database.password>
     
@@ -381,30 +381,19 @@
     </profile>
 
 		<!-- 
-		This creates the database using rice-db-master.sql
-		This should be run the first time that the bozai database is created, after this the refresh-db can
-		be used, since the liquibase plugin needs to have a existing database to run on.
-		-->
-		<profile>
-			<id>initialize-db</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>sql-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>init-db</id>
-								<phase>initialize</phase>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
+		This profile is used to initialize and refresh/clean the local database
 		
+		Initialize (initialize -> liquibase changesets) is done on the initialize phase
+		mvn initialize -Pbon-rice-db
+		
+		Refresh (drop -> initialize -> liquibase changesets) done on the clean and initialize phase
+		mvn clean initialize -Pbon-rice-db
+		
+		Drop (drop) done on clean phase
+		mvn clean -Pbon-rice-db
+		-->		
 		<profile>
-			<id>refresh-db</id>
+			<id>bon-rice-db</id>
 			<build>
 				<plugins>
 					<plugin>
