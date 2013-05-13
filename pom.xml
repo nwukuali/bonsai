@@ -58,8 +58,8 @@
     <database.url>${mysql.jdbc.url}</database.url>
     
     <database.name>bonzai</database.name>
-    <database.dba.username></database.dba.username>
-    <database.dba.password></database.dba.password>
+    <database.dba.username>root</database.dba.username>
+    <database.dba.password>root</database.dba.password>
     <database.username>bonzai</database.username>
     <database.password>bonzai</database.password>
     
