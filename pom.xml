@@ -71,7 +71,8 @@
     <mysql.jdbc.version>5.1.18</mysql.jdbc.version>
     <mysql.jdbc.driver>com.mysql.jdbc.Driver</mysql.jdbc.driver>
     <mysql.jdbc.artifactId>mysql-connector-java</mysql.jdbc.artifactId>
-    <mysql.jdbc.url>jdbc:mysql://localhost:3306</mysql.jdbc.url>
+    <mysql.jdbc.url>jdbc:mysql://${mysql.jdbc.host}:3306</mysql.jdbc.url>
+    <mysql.jdbc.host>localhost</mysql.jdbc.host>
 
     <rice.version>2.3.0-M1</rice.version>
     <jaxb-impl.version>2.2.6</jaxb-impl.version>
@@ -226,6 +227,8 @@
 							<srcFiles>
 								<srcFile>${basedir}\src\main\resources\za\ac\nwu\bonzai\sql\rice-master-db\rice-db-master.sql</srcFile>
 							</srcFiles>
+							<sqlCommand>grant all on `${database.name}`.* to '${database.username}'@'${mysql.jdbc.host}' identified by '${database.username}';</sqlCommand>
+<!-- 							<sqlCommand>CREATE USER '${database.name}'@'${mysql.jdbc.host}' IDENTIFIED BY '${database.username}'; GRANT ALL PRIVILEGES ON ${database.username}.* TO '${database.name}'@'${mysql.jdbc.host}';</sqlCommand> -->
 						</configuration>
 					</execution>
 				</executions>
@@ -246,7 +249,7 @@
 					<driver>${database.driver}</driver>
 					<url>${database.url}/${database.name}</url>
 					<username>${database.username}</username>
-					<password>${database.username}</password>
+					<password>${database.password}</password>
 					<changeLogFile>${basedir}/src/main/resources/za/ac/nwu/bonzai/liquibase/changelog/changelog-master.xml</changeLogFile>
 				</configuration>
 				<executions>
