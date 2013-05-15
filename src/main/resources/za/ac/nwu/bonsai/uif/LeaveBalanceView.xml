@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="LeaveBalanceView" parent="Uif-FormView">
+        <property name="additionalCssFiles">
+            <list>
+                <value>css/bootstrap.css</value>
+                <value>css/bootstrap-responsive.css</value>
+            </list>
+        </property>
+        <property name="additionalScriptFiles">
+            <list>
+                <value>js/html5shiv.js</value>
+            </list>
+        </property>
+
+        <property name="formClass" value="za.ac.nwu.bonsai.uif.form.LeaveBalanceForm"/>
+        <property name="breadcrumbs.render" value="false"/>
+        <property name="singlePageView" value="true"/>
+        <property name="page">
+            <bean parent="Uif-Page"/>
+        </property>
+
+        <property name="items">
+            <list>
+                <bean parent="Uif-HeaderTwo" p:headerText="Leave Balance"  />
+                <bean id="type" parent="Uif-InputField" p:propertyName="type"/>
+            </list>
+        </property>
+
+    </bean>
+
+
+</beans>
+
+
+
+<!--<beans xmlns:spring="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd ">-->
+
+<!--<formView-bean id="LeaveBalanceView" headerText="Leave Balance" singlePageView="true" formClass="za.ac.nwu.bonsai.uif.form.LeaveBalanceForm">-->
+<!--&lt;!&ndash;<page>&ndash;&gt;-->
+<!--&lt;!&ndash;<pageGroup parent="Uif-Page"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</page>&ndash;&gt;-->
+<!--<items>-->
+
+<!--<group-bean headertext="Group" parent="Uif-Disclosure-VerticalBoxSection">-->
+<!--<items>-->
+<!--<inputField-bean label="Field 1" parent="Uif-InputField" propertyName="field1">-->
+<!--<control>-->
+<!--<textControl-bean parent="Uif-TextControl" size="5"/>-->
+<!--</control>-->
+<!--</inputField-bean>-->
+<!--</items>-->
+<!--</group-bean>-->
+<!--</items>-->
+<!--</formView-bean>-->

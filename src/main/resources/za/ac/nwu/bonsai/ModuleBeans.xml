@@ -11,7 +11,8 @@
                 <!--<value>classpath:org/kuali/rice/krad/demo/travel/fiscalofficer/FiscalOfficer.xml</value>-->
 
                 <!-- KRAD sample app - component library -->
-                <value>classpath:za/ac/nwu/bonsai/uif/Dashboard.xml</value>
+                <value>classpath:za/ac/nwu/bonsai/uif/Application.xml</value>
+                <value>classpath:za/ac/nwu/bonsai/uif/LeaveBalanceView.xml</value>
             </list>
         </property>
         <property name="databaseRepositoryFilePaths">

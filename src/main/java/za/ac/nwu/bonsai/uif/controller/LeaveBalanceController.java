@@ -7,18 +7,18 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import za.ac.nwu.bonsai.uif.form.DashboardForm;
+import za.ac.nwu.bonsai.uif.form.LeaveBalanceForm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-@RequestMapping(value = "/dashboard")
-public class DashboardController extends UifControllerBase {
+@RequestMapping(value = "/leavebalance")
+public class LeaveBalanceController extends UifControllerBase {
 
     @Override
-    protected DashboardForm createInitialForm(HttpServletRequest request) {
-        return new DashboardForm();
+    protected LeaveBalanceForm createInitialForm(HttpServletRequest request) {
+        return new LeaveBalanceForm();
     }
 
     @Override
