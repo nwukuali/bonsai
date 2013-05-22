@@ -40,23 +40,23 @@
 
 <!--<beans xmlns:spring="http://www.springframework.org/schema/beans"-->
        <!--xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"-->
-       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd ">-->
+        <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+        <!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd ">-->
 
-<!--<formView-bean id="LeaveBalanceView" headerText="Leave Balance" singlePageView="true" formClass="za.ac.nwu.bonsai.uif.form.LeaveBalanceForm">-->
-<!--&lt;!&ndash;<page>&ndash;&gt;-->
-<!--&lt;!&ndash;<pageGroup parent="Uif-Page"/>&ndash;&gt;-->
-<!--&lt;!&ndash;</page>&ndash;&gt;-->
-<!--<items>-->
+        <!--<formView-bean id="LeaveBalanceView" headerText="Leave Balance" singlePageView="true" formClass="za.ac.nwu.bonsai.uif.form.LeaveBalanceForm">-->
+        <!--&lt;!&ndash;<page>&ndash;&gt;-->
+        <!--&lt;!&ndash;<pageGroup parent="Uif-Page"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;</page>&ndash;&gt;-->
+        <!--<items>-->
 
-<!--<group-bean headertext="Group" parent="Uif-Disclosure-VerticalBoxSection">-->
-<!--<items>-->
-<!--<inputField-bean label="Field 1" parent="Uif-InputField" propertyName="field1">-->
-<!--<control>-->
-<!--<textControl-bean parent="Uif-TextControl" size="5"/>-->
-<!--</control>-->
-<!--</inputField-bean>-->
-<!--</items>-->
-<!--</group-bean>-->
-<!--</items>-->
-<!--</formView-bean>-->
+        <!--<group-bean headertext="Group" parent="Uif-Disclosure-VerticalBoxSection">-->
+        <!--<items>-->
+        <!--<inputField-bean label="Field 1" parent="Uif-InputField" propertyName="field1">-->
+        <!--<control>-->
+        <!--<textControl-bean parent="Uif-TextControl" size="5"/>-->
+        <!--</control>-->
+        <!--</inputField-bean>-->
+        <!--</items>-->
+        <!--</group-bean>-->
+        <!--</items>-->
+        <!--</formView-bean>-->
