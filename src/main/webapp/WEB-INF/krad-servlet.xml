@@ -9,6 +9,6 @@
 
   <import resource="krad-base-servlet.xml"/>
 
-  <context:component-scan base-package="za.ac.nwu.bonsai.uif.controller"/>
+  <context:component-scan base-package="za.ac.nwu.bonsai.controller"/>
 
 </beans>

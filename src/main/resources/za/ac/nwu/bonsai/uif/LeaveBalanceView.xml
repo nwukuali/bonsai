@@ -17,7 +17,7 @@
             </list>
         </property>
 
-        <property name="formClass" value="za.ac.nwu.bonsai.uif.form.LeaveBalanceForm"/>
+        <property name="formClass" value="za.ac.nwu.bonsai.form.LeaveBalanceForm"/>
         <property name="breadcrumbs.render" value="false"/>
         <property name="singlePageView" value="true"/>
         <property name="page">
@@ -43,7 +43,7 @@
         <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
         <!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd ">-->
 
-        <!--<formView-bean id="LeaveBalanceView" headerText="Leave Balance" singlePageView="true" formClass="za.ac.nwu.bonsai.uif.form.LeaveBalanceForm">-->
+        <!--<formView-bean id="LeaveBalanceView" headerText="Leave Balance" singlePageView="true" formClass="za.ac.nwu.bonsai.form.LeaveBalanceForm">-->
         <!--&lt;!&ndash;<page>&ndash;&gt;-->
         <!--&lt;!&ndash;<pageGroup parent="Uif-Page"/>&ndash;&gt;-->
         <!--&lt;!&ndash;</page>&ndash;&gt;-->
