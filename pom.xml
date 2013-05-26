@@ -168,37 +168,6 @@
       </plugin>
 
         <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>sql-maven-plugin</artifactId>
-            <version>${plugin.sql.maven.version}</version>
-            <configuration>
-                <driver>${database.driver}</driver>
-                <url>${database.url}</url>
-                <username>${database.dba.username}</username>
-                <password>${database.dba.password}</password>
-            </configuration>
-            <executions>
-                <execution>
-                    <id>init-db</id>
-                    <phase>none</phase>
-                    <goals>
-                        <goal>execute</goal>
-                    </goals>
-                    <configuration>
-                        <sqlCommand>grant all on `${database.name}`.* to '${database.username}'@'${mysql.jdbc.host}' identified by '${database.username}';</sqlCommand>
-                    </configuration>
-                </execution>
-            </executions>
-            <dependencies>
-                <dependency>
-                    <groupId>${database.groupId}</groupId>
-                    <artifactId>${database.artifactId}</artifactId>
-                    <version>${database.version}</version>
-                </dependency>
-            </dependencies>
-        </plugin>
-
-        <plugin>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-maven-plugin</artifactId>
             <version>${plugin.liquibase.version}</version>
@@ -207,7 +176,6 @@
                 <url>${database.url}/${database.name}</url>
                 <username>${database.username}</username>
                 <password>${database.password}</password>
-                <changeLogFile>${basedir}/src/main/resources/liquibase/rice/base.xml</changeLogFile>
             </configuration>
             <executions>
                 <execution>
@@ -218,11 +186,24 @@
                     </goals>
                 </execution>
                 <execution>
-                    <id>changelog-master</id>
+                    <id>changelog-rice</id>
                     <phase>none</phase>
                     <goals>
                         <goal>update</goal>
                     </goals>
+                    <configuration>
+                		<changeLogFile>${basedir}/src/main/resources/liquibase/rice/base.xml</changeLogFile>
+            		</configuration>
+                </execution>
+                <execution>
+                    <id>changelog-bonsai</id>
+                    <phase>none</phase>
+                    <goals>
+                        <goal>update</goal>
+                    </goals>
+                    <configuration>
+                		<changeLogFile>${basedir}/src/main/resources/liquibase/bonsai/base.xml</changeLogFile>
+            		</configuration>
                 </execution>
             </executions>
             <dependencies>
@@ -341,19 +322,11 @@
     </profile>
 
 		<!-- 
-		This profile is used to initialize and refresh/clean the local database
-		
-		Initialize (initialize -> liquibase changesets) is done on the initialize phase
-		mvn initialize -Pbon-rice-db
-		
-		Refresh (drop -> initialize -> liquibase changesets) done on the clean and initialize phase
-		mvn clean initialize -Pbon-rice-db
-		
-		Drop (drop) done on clean phase
-		mvn clean -Pbon-rice-db
+		This profile is used to refresh/clean the local database		
+		mvn clean initialize -Prefresh-db
 		-->		
 		<profile>
-			<id>bon-rice-db</id>
+			<id>refresh-db</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -367,21 +340,15 @@
 						</executions>
 					</plugin>
 					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>sql-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>init-db</id>
-								<phase>initialize</phase>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
 						<groupId>org.liquibase</groupId>
 						<artifactId>liquibase-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>changelog-master</id>
+								<id>changelog-rice</id>
+								<phase>initialize</phase>
+							</execution>
+								<execution>
+								<id>changelog-bonsai</id>
 								<phase>initialize</phase>
 							</execution>
 						</executions>
