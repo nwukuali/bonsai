@@ -38,6 +38,7 @@
       <servlet-api.version>2.5</servlet-api.version>
       <jsp-api.version>2.1</jsp-api.version>
       <junit.version>4.11</junit.version>
+      <antlr.version>2.7.7</antlr.version>
 
     <!--plugin versions -->
     <!--
@@ -614,6 +615,13 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    
+    <!-- Used by EntityManager -->
+    <dependency>
+	  <groupId>antlr</groupId>
+	  <artifactId>antlr</artifactId>
+	  <version>${antlr.version}</version>
+	</dependency>
 
   </dependencies>
 </project>

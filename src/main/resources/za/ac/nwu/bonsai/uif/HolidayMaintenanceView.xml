@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+
+	<bean id="holidayMaintenance-page" parent="Uif-Page">
+		<property name="items">
+			<list>
+				<bean id="holidayCollection" parent="Uif-TableCollectionSection"
+					p:propertyName="holidayList" p:title="Table Collection For Holiday Maintenence"
+					p:layoutManager.sequencePropertyName="name"
+					p:collectionObjectClass="za.ac.nwu.bonsai.businessobject.Holiday">
+					<property name="items">
+						<list>
+							<bean parent="Uif-InputField" p:label="Name" p:propertyName="name" />
+							<bean parent="Uif-InputField" p:label="Date" p:propertyName="date">
+								<property name="control">
+									<bean parent="Uif-DateControl" p:watermarkText="mm/dd/yyyy"/>
+								</property>
+							</bean>
+							<bean parent="Uif-InputField" p:label="Type" p:propertyName="type" />
+							<bean parent="Uif-InputField" p:label="Description"
+								p:propertyName="description" />
+						</list>
+					</property>
+					<property name="lineActions">
+						<list>
+							<bean parent="Uif-PrimaryActionButton-Small" p:methodToCall="saveLine"
+								p:actionLabel="Save" />
+							<bean parent="Uif-PrimaryActionButton-Small" p:methodToCall="deleteLine"
+								p:actionLabel="Delete" />
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="HolidayFormView" parent="Uif-FormView"
+		p:formClass="za.ac.nwu.bonsai.form.HolidayMaintenanceForm" p:title="Holiday Maintenance">
+		<property name="items">
+			<list>
+				<bean parent="holidayMaintenance-page" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

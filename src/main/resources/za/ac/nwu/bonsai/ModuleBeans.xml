@@ -13,6 +13,7 @@
                 <!-- KRAD sample app - component library -->
                 <value>classpath:za/ac/nwu/bonsai/uif/Application.xml</value>
                 <value>classpath:za/ac/nwu/bonsai/uif/LeaveBalanceView.xml</value>
+                <value>classpath:za/ac/nwu/bonsai/uif/HolidayMaintenanceView.xml</value>
             </list>
         </property>
         <property name="databaseRepositoryFilePaths">

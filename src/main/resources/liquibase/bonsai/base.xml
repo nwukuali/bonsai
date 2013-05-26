@@ -4,4 +4,8 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
   
+   <changeSet id="BON-15" author="bonsai">
+        <sqlFile relativeToChangelogFile="true" path="./2013-05-25_BON_HOLIDAY.sql"/>
+   </changeSet>
+  
 </databaseChangeLog>
