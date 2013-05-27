@@ -13,11 +13,6 @@ import java.util.List;
 @Service(value = "leaveService")
 public class StubLeaveServiceImpl implements LeaveService{
 
-
-	public StubLeaveServiceImpl(){
-		System.out.println("HEREE!~!!!!!!!!!!!!!!");
-	}
-
 	@Override
 	public List<LeaveBalance> getLeaveBalances(Person person) {
 		List<LeaveBalance> result = retrieveLeaveBalancesFromTempTable(person);

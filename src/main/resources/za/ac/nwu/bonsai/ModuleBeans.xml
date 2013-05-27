@@ -3,8 +3,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!--<bean id="leaveService" class="za.ac.nwu.bonsai.service.impl.StubLeaveServiceImpl"/>-->
-
     <bean id="moduleConfiguration" class="org.kuali.rice.krad.bo.ModuleConfiguration">
         <property name="namespaceCode" value="BON"/>
         <property name="initializeDataDictionary" value="true"/>
@@ -24,29 +22,5 @@
             </list>
         </property>
     </bean>
-
-
-
-    <!--<bean id="leaveBalanceController" class="za.ac.nwu.bonsai.controller.LeaveBalanceController">-->
-        <!--<constructor-arg index="0" ref="leaveService"/>-->
-
-        <!--<constructor-arg index="0">-->
-            <!--<bean class="org.kuali.rice.core.framework.resourceloader.GlobalResourceLoaderServiceFactoryBean">-->
-                <!--<property name="serviceName" value="leaveService"/>-->
-                <!--<property name="serviceNamespace" value="BON"/>-->
-            <!--</bean>-->
-        <!--</constructor-arg>-->
-        <!--<constructor-arg index="1">-->
-            <!--<bean class="org.kuali.rice.core.framework.resourceloader.GlobalResourceLoaderServiceFactoryBean">-->
-                <!--<property name="serviceName" value="personService"/>-->
-            <!--</bean>-->
-        <!--</constructor-arg>-->
-        <!--<constructor-arg index="2">-->
-            <!--<bean class="org.kuali.rice.core.framework.resourceloader.GlobalResourceLoaderServiceFactoryBean">-->
-                <!--<property name="serviceName" value="authenticationService"/>-->
-            <!--</bean>-->
-        <!--</constructor-arg>-->
-
-    <!--</bean>-->
 
 </beans>

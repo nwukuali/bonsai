@@ -26,28 +26,17 @@
 
     <import resource="classpath:org/kuali/rice/core/RiceJTASpringBeans.xml"/>
     <import resource="classpath:org/kuali/rice/core/RiceDataSourceSpringBeans.xml"/>
-    <!--<import resource="classpath:org/kuali/rice/config/RiceSpringBeans.xml"/>-->
+    <import resource="classpath:org/kuali/rice/config/RiceSpringBeans.xml"/>
 
 
-    <bean class="org.kuali.rice.core.util.ApplicationThreadLocalCleaner" lazy-init="false"/>
-    <import resource="classpath:org/kuali/rice/config/RiceServiceRegistrySpringBeans.xml"/>
-    <bean id="kradConfigurer" class="org.kuali.rice.krad.config.KRADConfigurer"/>
-    <bean id="coreServiceConfigurer" class="org.kuali.rice.coreservice.impl.config.CoreServiceConfigurer"/>
-    <bean id="kimConfigurer" class="org.kuali.rice.kim.config.KIMConfigurer"/>
-    <bean id="kenConfigurer" class="org.kuali.rice.ken.impl.config.KENConfigurer"/>
-    <bean id="locationConfigurer" class="org.kuali.rice.location.impl.config.LocationConfigurer"/>
-
-    <bean id="recipientPreferenceService" class="org.kuali.rice.kcb.service.impl.StubRecipientPreferenceServiceImpl"/>
-
-
-
-
-
-    <bean id="leaveService" class="za.ac.nwu.bonsai.service.impl.StubLeaveServiceImpl"/>
+    <!--<bean class="org.kuali.rice.core.util.ApplicationThreadLocalCleaner" lazy-init="false"/>-->
+    <!--<import resource="classpath:org/kuali/rice/config/RiceServiceRegistrySpringBeans.xml"/>-->
+    <!--<bean id="kradConfigurer" class="org.kuali.rice.krad.config.KRADConfigurer"/>-->
+    <!--<bean id="coreServiceConfigurer" class="org.kuali.rice.coreservice.impl.config.CoreServiceConfigurer"/>-->
+    <!--<bean id="kimConfigurer" class="org.kuali.rice.kim.config.KIMConfigurer"/>-->
+    <!--<bean id="kenConfigurer" class="org.kuali.rice.ken.impl.config.KENConfigurer"/>-->
+    <!--<bean id="locationConfigurer" class="org.kuali.rice.location.impl.config.LocationConfigurer"/>-->
 
     <import resource="classpath:za/ac/nwu/bonsai/ModuleBeans.xml"/>
-
-    <!--an application specific service-->
-    <!--<bean id="productService" class="za.ac.nwu.bonsai.MultiplicationProductServiceImpl" />-->
 
 </beans>
