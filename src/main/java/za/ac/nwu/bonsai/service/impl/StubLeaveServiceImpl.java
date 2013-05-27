@@ -10,8 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Temporary stub service until we have ws to HR in place
-//@Service(value = "leaveService")
+@Service(value = "leaveService")
 public class StubLeaveServiceImpl implements LeaveService{
+
+
+	public StubLeaveServiceImpl(){
+		System.out.println("HEREE!~!!!!!!!!!!!!!!");
+	}
 
 	@Override
 	public List<LeaveBalance> getLeaveBalances(Person person) {

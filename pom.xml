@@ -181,29 +181,19 @@
             <executions>
                 <execution>
                     <id>drop-db</id>
-                    <phase>none</phase>
+                    <phase>${liquibase-drop-db.phase}</phase>
                     <goals>
                         <goal>dropAll</goal>
                     </goals>
                 </execution>
                 <execution>
-                    <id>changelog-rice</id>
-                    <phase>none</phase>
+                    <id>changelog-master</id>
+                    <phase>${liquibase-update-db.phase}</phase>
                     <goals>
                         <goal>update</goal>
                     </goals>
                     <configuration>
                 		<changeLogFile>${basedir}/src/main/resources/liquibase/rice/base.xml</changeLogFile>
-            		</configuration>
-                </execution>
-                <execution>
-                    <id>changelog-bonsai</id>
-                    <phase>none</phase>
-                    <goals>
-                        <goal>update</goal>
-                    </goals>
-                    <configuration>
-                		<changeLogFile>${basedir}/src/main/resources/liquibase/bonsai/base.xml</changeLogFile>
             		</configuration>
                 </execution>
             </executions>
@@ -321,13 +311,28 @@
         </plugins>
       </build>
     </profile>
+      <profile>
+          <id>refresh-db</id>
+          <properties>
+              <liquibase-drop-db.phase>install</liquibase-drop-db.phase>
+              <liquibase-update-db.phase>install</liquibase-update-db.phase>
+          </properties>
+      </profile>
 
 		<!-- 
-		This profile is used to refresh/clean the local database		
-		mvn clean initialize -Prefresh-db
+		This profile is used to initialize and refresh/clean the local database
+		
+		Initialize (initialize -> liquibase changesets) is done on the initialize phase
+		mvn initialize -Pbon-rice-db
+		
+		Refresh (drop -> initialize -> liquibase changesets) done on the clean and initialize phase
+		mvn clean initialize -Pbon-rice-db
+		
+		Drop (drop) done on clean phase
+		mvn clean -Pbon-rice-db
 		-->		
 		<profile>
-			<id>refresh-db</id>
+			<id>bon-rice-db</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -341,15 +346,21 @@
 						</executions>
 					</plugin>
 					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>sql-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>init-db</id>
+								<phase>initialize</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<groupId>org.liquibase</groupId>
 						<artifactId>liquibase-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>changelog-rice</id>
-								<phase>initialize</phase>
-							</execution>
-								<execution>
-								<id>changelog-bonsai</id>
+								<id>changelog-master</id>
 								<phase>initialize</phase>
 							</execution>
 						</executions>

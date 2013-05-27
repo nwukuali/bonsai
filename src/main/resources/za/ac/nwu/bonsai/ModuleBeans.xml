@@ -3,6 +3,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+    <!--<bean id="leaveService" class="za.ac.nwu.bonsai.service.impl.StubLeaveServiceImpl"/>-->
+
     <bean id="moduleConfiguration" class="org.kuali.rice.krad.bo.ModuleConfiguration">
         <property name="namespaceCode" value="BON"/>
         <property name="initializeDataDictionary" value="true"/>
@@ -16,16 +18,6 @@
                 <value>classpath:za/ac/nwu/bonsai/uif/HolidayMaintenanceView.xml</value>
             </list>
         </property>
-        <property name="databaseRepositoryFilePaths">
-            <list>
-                <!--<value>OJB-repository-krad-sampleapp.xml</value>-->
-            </list>
-        </property>
-        <property name="packagePrefixes">
-            <list>
-                <value>za.ac.nwu.bonsai</value>
-            </list>
-        </property>
         <property name="resourceBundleNames">
             <list>
                 <!--<value>org.kuali.rice.krad.demo.uif.components.resources.KradSampleAppDemoResources</value>-->
@@ -33,7 +25,7 @@
         </property>
     </bean>
 
-    <bean id="leaveService" class="za.ac.nwu.bonsai.service.impl.StubLeaveServiceImpl"/>
+
 
     <!--<bean id="leaveBalanceController" class="za.ac.nwu.bonsai.controller.LeaveBalanceController">-->
         <!--<constructor-arg index="0" ref="leaveService"/>-->

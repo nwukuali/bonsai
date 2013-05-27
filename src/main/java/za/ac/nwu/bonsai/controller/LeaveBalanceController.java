@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import za.ac.nwu.bonsai.service.LeaveService;
 import za.ac.nwu.bonsai.form.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -24,6 +25,8 @@ import java.util.List;
 @RequestMapping(value = "/leavebalance")
 public class LeaveBalanceController extends UifControllerBase {
 
+
+	@Autowired
 	private LeaveService leaveService;
 	private PersonService personService;
 	private AuthenticationService authenticationService;
@@ -35,8 +38,9 @@ public class LeaveBalanceController extends UifControllerBase {
 //	}
 
 	public LeaveBalanceController(){
-		GlobalResourceLoader.logAllContents();
-		this.leaveService = GlobalResourceLoader.getService("leaveService");
+//		this.leaveService = leaveService;
+//		GlobalResourceLoader.logAllContents();
+//		this.leaveService = GlobalResourceLoader.getService("leaveService");
 	}
 
 	@Override
