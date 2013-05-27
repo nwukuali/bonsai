@@ -25,28 +25,13 @@ import java.util.List;
 @RequestMapping(value = "/leavebalance")
 public class LeaveBalanceController extends UifControllerBase {
 
-
 	@Autowired
 	private LeaveService leaveService;
 	private PersonService personService;
 	private AuthenticationService authenticationService;
 
-//	public LeaveBalanceController(LeaveService leaveService/*, PersonService personService, AuthenticationService authenticationService*/) {
-//		this.leaveService = leaveService;
-//		this.personService = personService;
-//		this.authenticationService = authenticationService;
-//	}
-
-	public LeaveBalanceController(){
-//		this.leaveService = leaveService;
-//		GlobalResourceLoader.logAllContents();
-//		this.leaveService = GlobalResourceLoader.getService("leaveService");
-	}
-
 	@Override
 	protected LeaveBalanceForm createInitialForm(HttpServletRequest request) {
-//		String principalName = authenticationService.getPrincipalName(request);
-//		Person person = personService.getPerson(principalName);
 		Person person = GlobalVariables.getUserSession().getPerson();
 		return new LeaveBalanceForm(leaveService.getLeaveBalances(person));
 	}
