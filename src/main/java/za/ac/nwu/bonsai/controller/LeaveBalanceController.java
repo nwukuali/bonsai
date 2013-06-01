@@ -27,8 +27,6 @@ public class LeaveBalanceController extends UifControllerBase {
 
 	@Autowired
 	private LeaveService leaveService;
-	private PersonService personService;
-	private AuthenticationService authenticationService;
 
 	@Override
 	protected LeaveBalanceForm createInitialForm(HttpServletRequest request) {

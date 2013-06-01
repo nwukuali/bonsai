@@ -15,5 +15,22 @@ public enum LeaveType {
 	private String name;
 	private final int priority;
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public static LeaveType toLeaveType(String name){
+        for (LeaveType leaveType : values()){
+            if (leaveType.name().equalsIgnoreCase(name)){
+                return leaveType;
+            }
+        }
+        return null;
+    }
+
 
 }
