@@ -10,7 +10,7 @@
     <bean id="bootstrapConfig" class="org.kuali.rice.core.impl.config.property.ConfigFactoryBean">
         <property name="configLocations">
             <list>
-                <value>classpath:za/ac/nwu/bonsai/BootStrapConfig.xml</value>
+                <value>classpath:META-INF/bootstrap-properties.xml</value>
             </list>
         </property>
     </bean>
@@ -37,6 +37,6 @@
     <!--<bean id="kenConfigurer" class="org.kuali.rice.ken.impl.config.KENConfigurer"/>-->
     <!--<bean id="locationConfigurer" class="org.kuali.rice.location.impl.config.LocationConfigurer"/>-->
 
-    <import resource="classpath:za/ac/nwu/bonsai/ModuleBeans.xml"/>
+    <import resource="classpath:za/ac/nwu/bonsai/main-context.xml"/>
 
 </beans>

@@ -3,6 +3,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+    <import resource="persistence-context.xml" />
+
     <bean id="moduleConfiguration" class="org.kuali.rice.krad.bo.ModuleConfiguration">
         <property name="namespaceCode" value="BON"/>
         <property name="initializeDataDictionary" value="true"/>
@@ -10,7 +12,7 @@
             <list>
                 <!--<value>classpath:org/kuali/rice/krad/demo/travel/fiscalofficer/FiscalOfficer.xml</value>-->
 
-                <!-- KRAD sample app - component library -->
+                <!-- KRAD -->
                 <value>classpath:za/ac/nwu/bonsai/uif/Application.xml</value>
                 <value>classpath:za/ac/nwu/bonsai/uif/LeaveBalanceView.xml</value>
                 <value>classpath:za/ac/nwu/bonsai/uif/HolidayMaintenanceView.xml</value>
@@ -22,5 +24,7 @@
             </list>
         </property>
     </bean>
+
+    <bean id="maintenanceService" class="za.ac.nwu.bonsai.service.impl.HolidayMaintenanceServiceImpl"/>
 
 </beans>
