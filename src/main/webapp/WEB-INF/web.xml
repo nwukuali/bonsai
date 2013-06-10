@@ -34,7 +34,7 @@ This file contains custom application specific web.xml content.
 
   <context-param>
     <param-name>web.bootstrap.spring.file</param-name>
-    <param-value>classpath:za/ac/nwu/bonsai/BootStrapSpringBeans.xml</param-value>
+    <param-value>classpath:za/ac/nwu/bonsai/bootstrap-context.xml</param-value>
   </context-param>
 
   <filter>

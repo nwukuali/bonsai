@@ -15,16 +15,7 @@
     limitations under the License.
 
 -->
-<!--
 
-Kuali Rice ArcheType Help
-
-This is the internal project configuration required by Kuali Rice based applications.
-
-It is usually desirable to put some of these parameters, such as datasource password,
-in configuration files outside of the project.
-
--->
 <config>
 
   <param name="app.title">Bonsai Leave Management System</param>
@@ -47,10 +38,7 @@ in configuration files outside of the project.
 
   <param name="dev.mode">true</param>
 
-      
   <param name="datasource.ojb.platform">MySQL</param>
-
-    
   <param name="datasource.url">jdbc:mysql://localhost:3306/bonsai</param>
   <param name="datasource.username">bonsai</param>
   <param name="datasource.password">bonsai</param>
@@ -61,6 +49,5 @@ in configuration files outside of the project.
   <param name="version">bonsai :: ${project.version} :: ${kuali.build.timestamp}</param>
 
   <param name="rice.kr.additionalSpringFiles">classpath:org/kuali/rice/krad/devtools/datadictionary/ReloadingDataDictionarySpringBeans.xml</param>
-  <!--<param name="rice.kr.additionalSpringFiles">classpath:org/kuali/rice/devtools/krad/datadictionary/ReloadingDataDictionarySpringBeans.xml</param>-->
 
 </config>

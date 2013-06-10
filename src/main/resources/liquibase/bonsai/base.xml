@@ -7,5 +7,9 @@
    <changeSet id="BON-15" author="bonsai">
         <sqlFile relativeToChangelogFile="true" path="./2013-05-25_BON_HOLIDAY.sql"/>
    </changeSet>
+
+    <changeSet id="BON-19" author="bonsai">
+        <sqlFile relativeToChangelogFile="true" path="./Leave_Balances.sql"/>
+    </changeSet>
   
 </databaseChangeLog>
