@@ -18,7 +18,7 @@
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <b
                             class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="holidaymaintenance?viewId=HolidayMaintenanceView&methodToCall=start">Public Holidays</a></li>
+                            <li><a href="holidayMaintenance?viewTypeName=MAINTENANCE&methodToCall=maintenanceEdit&dataObjectClassName=za.ac.nwu.bonsai.form.HolidayMaintenanceForm&viewName=HolidayManagementView">Public Holidays</a></li>
                         </ul>
                     </li>
                 </ul>

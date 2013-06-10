@@ -3,15 +3,14 @@ package za.ac.nwu.bonsai.controller;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.kuali.rice.krad.uif.UifParameters;
-import org.kuali.rice.krad.uif.container.CollectionGroup;
 import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
-import org.kuali.rice.krad.web.controller.UifControllerBase;
+import org.kuali.rice.krad.web.controller.MaintenanceDocumentController;
+import org.kuali.rice.krad.web.form.MaintenanceDocumentForm;
 import org.kuali.rice.krad.web.form.UifFormBase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,15 +28,10 @@ import za.ac.nwu.bonsai.service.HolidayMaintenanceService;
 
 @Controller
 @RequestMapping(value = "/holidayMaintenance")
-public class HolidayMaintenanceController extends UifControllerBase {
+public class HolidayMaintenanceController extends MaintenanceDocumentController {
 
 	@Autowired
 	private HolidayMaintenanceService maintenanceService ;
-	
-	@Override
-	protected HolidayMaintenanceForm createInitialForm(HttpServletRequest request) {
-		return new HolidayMaintenanceForm();
-	}
 	
 	@Override
 	@RequestMapping(params = "methodToCall=start")
