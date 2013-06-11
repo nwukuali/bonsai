@@ -2,6 +2,7 @@ package za.ac.nwu.bonsai.service.impl;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.kuali.rice.kim.api.identity.Person;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
@@ -21,16 +22,35 @@ import java.util.List;
 //Temporary stub service unjtil we have ws to HR in place
 @Service(value = "leaveService")
 public class StubLeaveServiceImpl implements LeaveService {
-
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<LeaveBalance> getLeaveBalances(Person person) {
-        List<LeaveBalance> balances = new ArrayList<LeaveBalance>();
+        List<LeaveBalance> results = jdbcTemplate.query(
+                "select * from BON_LEAVE_BALANCES where EMPLOYEE_NUMBER = ?",
+              /*  new Object[]{person.getEmployeeId()}, new RowMapper<LeaveBalance>() {*/
+                new Object[]{"12927252"}, new RowMapper<LeaveBalance>() {
+
+
+            @Override
+            public LeaveBalance mapRow(ResultSet rs, int rowNum) throws SQLException {
+                LeaveBalance leaveBalance = new LeaveBalance();
+                leaveBalance.setType(LeaveType.toLeaveType(rs.getString("LEAVE")));
+                leaveBalance.setCycleDaysBalanceToDate(rs.getDouble("CYCLE_BALANCE_TO_DATE"));
+                leaveBalance.setCycleDaysTakenToDate(rs.getDouble("CYCLE_DAYS_TAKEN_TO_DATE"));
+                leaveBalance.setEndOfCycleDaysBalance(rs.getDouble("END_OF_CYCLE_DATE"));
+                leaveBalance.setFullCycleDays(rs.getDouble("FULL_CYCLE_DAYS"));
+                return leaveBalance;
+            }
+        });
+        return results;
+
+      /*  List<LeaveBalance> balances = new ArrayList<LeaveBalance>();
         balances.add(createTempLeaveBalance(LeaveType.ANNUAL, 10, 20, 30, 40));
         balances.add(createTempLeaveBalance(LeaveType.SICK, 10, 20, 30, 40));
         balances.add(createTempLeaveBalance(LeaveType.STUDY, 3.5, 2.6, 3, 2.1));
-        return balances;
+        return balances;*/
     }
 
     @Override

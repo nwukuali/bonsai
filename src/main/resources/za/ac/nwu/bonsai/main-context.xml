@@ -28,4 +28,8 @@
 
     <bean id="maintenanceService" class="za.ac.nwu.bonsai.service.impl.HolidayMaintenanceServiceImpl"/>
 
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="dataSource"/>
+    </bean>
+
 </beans>
