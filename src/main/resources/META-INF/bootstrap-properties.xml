@@ -33,6 +33,9 @@
   <param name="application.id">bonsai</param>
   <param name="app.context.name">bonsai</param>
 
+  <param name="appserver.url">http://localhost:8080</param>
+  <param name="application.url">${appserver.url}/${app.context.name}</param>
+
   <param name="filter.login.class">org.kuali.rice.kew.web.DummyLoginFilter</param>
   <param name="filtermapping.login.1">/*</param>
 

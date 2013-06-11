@@ -5,7 +5,16 @@
                     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
 
-	<bean id="holidayMaintenance-page" parent="Uif-Page">
+    <bean id="HolidayView" parent="Uif-MaintenanceView">
+        <property name="dataObjectClassName" value="za.ac.nwu.bonsai.form.HolidayMaintenanceForm"/>
+        <property name="items">
+            <list>
+                <bean parent="holidayMaintenance-page" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="holidayMaintenance-page" parent="Uif-Page">
 		<property name="items">
 			<list>
 				<bean id="holidayCollection" parent="Uif-TableCollectionSection"
@@ -38,13 +47,6 @@
 		</property>
 	</bean>
 
-	<bean id="HolidayFormView" parent="Uif-FormView"
-		p:formClass="za.ac.nwu.bonsai.form.HolidayMaintenanceForm" p:title="Holiday Maintenance">
-		<property name="items">
-			<list>
-				<bean parent="holidayMaintenance-page" />
-			</list>
-		</property>
-	</bean>
+
 
 </beans>

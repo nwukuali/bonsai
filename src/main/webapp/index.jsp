@@ -1,1 +1,1 @@
-<% response.sendRedirect("mvc/leavebalance?viewId=LeaveBalanceView&methodToCall=start"); %>
+<% response.sendRedirect("mvc/dashboard?viewId=DashboardView&methodToCall=start"); %>

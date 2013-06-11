@@ -11,5 +11,36 @@
         p:template="/ftl/globalAppFooter.ftl" p:render="true"
         p:templateName="kradappfooter"/>
 
-
+    <bean id="BON-FormView" abstract="true" parent="Uif-FormView">
+        <property name="applicationHeader" ref="BON-GlobalApplicationHeader"/>
+        <property name="applicationFooter" ref="BON-GlobalApplicationFooter"/>
+        <property name="additionalCssFiles">
+            <list>
+                <value>css/bon.css</value>
+                <value>css/bootstrap.css</value>
+                <value>css/bootstrap-responsive.css</value>
+            </list>
+        </property>
+        <property name="additionalScriptFiles">
+            <list>
+                <value>js/bootstrap.js</value>
+            </list>
+        </property>
+        <property name="breadcrumbs.render" value="false"/>
+        <property name="cssClasses">
+            <list merge="true">
+                <value>bon-view</value>
+            </list>
+        </property>
+        <property name="singlePageView" value="true"/>
+        <property name="page">
+            <bean parent="Uif-Page">
+                <property name="cssClasses">
+                    <list merge="true">
+                        <value>bon-page</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
 </beans>
