@@ -8,4 +8,8 @@
         <sqlFile relativeToChangelogFile="true" path="./master.sql"/>
     </changeSet>
 
+	 <changeSet id="RICE-PERSON" author="bonsai">
+        <sqlFile relativeToChangelogFile="true" path="./bon-person.sql"/>
+    </changeSet>
+	
 </databaseChangeLog>

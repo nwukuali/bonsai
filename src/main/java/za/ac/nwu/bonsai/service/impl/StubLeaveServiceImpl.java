@@ -29,8 +29,8 @@ public class StubLeaveServiceImpl implements LeaveService {
     public List<LeaveBalance> getLeaveBalances(Person person) {
         List<LeaveBalance> results = jdbcTemplate.query(
                 "select * from BON_LEAVE_BALANCES where EMPLOYEE_NUMBER = ?",
-              /*  new Object[]{person.getEmployeeId()}, new RowMapper<LeaveBalance>() {*/
-                new Object[]{"12927252"}, new RowMapper<LeaveBalance>() {
+                new Object[]{person.getEmployeeId()}, new RowMapper<LeaveBalance>() {
+                /*new Object[]{"12927252"}, new RowMapper<LeaveBalance>() {*/
 
 
             @Override
