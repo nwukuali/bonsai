@@ -53,4 +53,6 @@
 
   <param name="rice.kr.additionalSpringFiles">classpath:org/kuali/rice/krad/devtools/datadictionary/ReloadingDataDictionarySpringBeans.xml</param>
 
+  <param name="BON.jpa.enabled">true</param>
+
 </config>
