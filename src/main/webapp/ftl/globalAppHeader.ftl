@@ -13,8 +13,8 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="active"><a href="dashboard?viewId=DashboardView&methodToCall=start">Home</a></li>
-                    <li><a href="leavetransaction?viewId=LeaveTransactionView&methodToCall=start">Balances</a></li>
-                    <li><a href="leavebalance?viewId=LeaveBalanceView">History</a></li>
+                    <li><a href="leavebalance?viewId=LeaveBalanceView&methodToCall=start">Balances</a></li>
+                    <li><a href="leavetransaction?viewId=LeaveTransactionView&methodToCall=start">History</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <b
                             class="caret"></b></a>
                         <ul class="dropdown-menu">

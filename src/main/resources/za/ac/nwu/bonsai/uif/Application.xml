@@ -21,6 +21,11 @@
                 <value>css/bootstrap-responsive.css</value>
             </list>
         </property>
+        <property name="additionalCssClasses">
+            <list>
+                <value>container</value>
+            </list>
+        </property>
         <property name="additionalScriptFiles">
             <list>
                 <value>js/bootstrap.js</value>
