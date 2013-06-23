@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="LeaveApplicationView" parent="Uif-FormView"> <!-- Uif-DocumentView -->
+		<property name="items">
+			<list>
+				<bean id="page1" parent="Uif-Page">
+					<property name="items">
+						<list>
+							<bean parent="Uif-GridGroup" p:layoutManager.numberOfColumns="2">
+								<property name="items">
+									<list>
+										<bean parent="Uif-InputField" p:propertyName="leaveApplication.leaveType"
+											p:label="Type">
+											<property name="control">
+												<bean parent="Uif-DropdownControl" />
+											</property>
+											<property name="optionsFinder">
+												<bean class="za.ac.nwu.bonsai.keyvalue.LeaveTypeKeyValues" />
+											</property>
+										</bean>
+										<bean parent="Uif-InputField" p:propertyName="leaveApplication.dateFrom"
+											p:label="From">
+											<property name="control">
+												<bean parent="Uif-DateControl" p:watermarkText="mm/dd/yyyy" />
+											</property>
+										</bean>
+										<bean parent="Uif-InputField" p:propertyName="leaveApplication.dateTo"
+											p:label="To">
+											<property name="control">
+												<bean parent="Uif-DateControl" p:watermarkText="mm/dd/yyyy" />
+											</property>
+										</bean>
+										<bean parent="Uif-InputField" p:propertyName="leaveApplication.reason"
+											p:label="Reason">
+											<property name="control">
+												<bean parent="Uif-TextAreaControl" p:rows="5" p:cols="50"
+													p:textExpand="true" />
+											</property>
+										</bean>
+										<bean parent="Uif-InputField" p:propertyName="leaveApplication.contactNumber"
+											p:label="Contact Number">
+											<property name="control">
+												<bean parent="Uif-TextControl" />
+											</property>
+										</bean>
+										<bean parent="Uif-InputField" p:propertyName="leaveApplication.contactAddress"
+											p:label="Contact Adress">
+											<property name="control">
+												<bean parent="Uif-TextControl" />
+											</property>
+										</bean>
+									</list>
+								</property>
+							</bean>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+		<property name="formClass" value="za.ac.nwu.bonsai.form.LeaveApplicationForm" />
+	</bean>
+
+</beans>

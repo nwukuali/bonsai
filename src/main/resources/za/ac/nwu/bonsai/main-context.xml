@@ -20,6 +20,7 @@
                 <value>classpath:za/ac/nwu/bonsai/uif/LeaveBalanceView.xml</value>
                 <value>classpath:za/ac/nwu/bonsai/uif/LeaveTransactionView.xml</value>
                 <value>classpath:za/ac/nwu/bonsai/uif/HolidayMaintenanceView.xml</value>
+                <value>classpath:za/ac/nwu/bonsai/uif/LeaveApplicationView.xml</value>
 
                 <value>classpath:za/ac/nwu/bonsai/def/HolidayMaintenance.xml</value>
             </list>

@@ -11,6 +11,8 @@ import java.util.Date;
 @Table(name="BON_LEAVE_APPS_T")
 public class LeaveApplication extends PersistableBusinessObjectBase {
 
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "ID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
