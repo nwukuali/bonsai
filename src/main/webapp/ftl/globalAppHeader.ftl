@@ -8,8 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">bonsai</a>
-
+            <a class="brand" href="#"><img id="u100008" class="uif-image uif-boxLayoutVerticalItem clearfix" alt="" src="http://localhost:8080/bonsai/img/logo.png" width="100" height="100"></img></a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="active"><a href="dashboard?viewId=DashboardView&methodToCall=start">Home</a></li>
