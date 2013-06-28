@@ -608,6 +608,13 @@
             <artifactId>rice-krad-development-tools</artifactId>
             <version>${rice.version}</version>
         </dependency>
+        
+        <!-- Temporary for JPA Rice overide -->
+       	<dependency>
+            <groupId>org.kuali.rice</groupId>
+            <artifactId>rice-krad-service-impl</artifactId>
+            <version>${rice.version}</version>
+        </dependency>
 
         <!-- third party libraries -->
         <dependency>

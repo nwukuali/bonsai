@@ -8,7 +8,7 @@
         <property name="formClass" value="za.ac.nwu.bonsai.form.LeaveTransactionForm"/>
         <property name="page.items">
             <list>
-                <bean parent="Uif-VerticalBoxSection" p:width="400px" p:style="margin-top:25px">
+                <bean name="LeaveTransactionTable" parent="Uif-VerticalBoxSection" p:width="400px" p:style="margin-top:25px">
                     <property name="items">
                         <list>
                             <bean parent="Uif-HeaderTwo" p:headerText="Leave History"/>

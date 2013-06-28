@@ -11,5 +11,41 @@
     <changeSet id="BON-19" author="bonsai">
         <sqlFile relativeToChangelogFile="true" path="./Leave_Balances.sql"/>
     </changeSet>
+
+    <changeSet id="BON-14" author="bonsai">
+      <createTable tableName="BON_LEAVE_APPS_T">
+          <column name="ID" type="bigint(10)">
+              <constraints primaryKey="true" nullable="false" />
+          </column>
+          <column name="LEAVE_TYPE" type="varchar(10)">
+              <constraints nullable="false" />
+          </column>
+          <column name="DT_FROM" type="datetime">
+              <constraints nullable="false" />
+          </column>
+          <column name="DT_TO" type="datetime">
+              <constraints nullable="false" />
+          </column>
+          <column name="REASON" type="varchar(400)">
+              <constraints nullable="true" />
+          </column>
+          <column name="CONTACT_NBR" type="varchar(40)">
+              <constraints nullable="true" />
+          </column>
+          <column name="CONTACT_ADR" type="varchar(400)">
+              <constraints nullable="true" />
+          </column>
+          <column name="OBJ_ID" type="varchar(36)">
+              <constraints nullable="false" />
+          </column>
+          <column name="VER_NBR" type="decimal(8,0)">
+              <constraints nullable="false" />
+          </column>
+          <column name="PERSON_ID" type="varchar(36)">
+              <constraints nullable="true" />
+          </column>
+      </createTable>
+    </changeSet>
+
   
 </databaseChangeLog>
