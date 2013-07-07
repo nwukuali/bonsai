@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
+import za.ac.nwu.bonsai.businessobject.LeaveApplication;
 import za.ac.nwu.bonsai.businessobject.LeaveBalance;
 import za.ac.nwu.bonsai.businessobject.LeaveTransaction;
 import za.ac.nwu.bonsai.businessobject.LeaveType;
 import za.ac.nwu.bonsai.service.LeaveService;
 
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -90,8 +92,12 @@ public class StubLeaveServiceImpl implements LeaveService {
 //        return results;
     }
 
+	@Override
+	public File generateLeaveApplicationHardCopy(LeaveApplication leaveApplication) {
+		throw new RuntimeException("Not yet implemented!!!");
+	}
 
-    //TODO: Remove once jdbtemplates in place
+	//TODO: Remove once jdbtemplates in place
     private LeaveTransaction createTempLeaveTransaction(LeaveType type, Date fromDate, Date toDate, int totalDays) {
         return new LeaveTransaction.LeaveTransactionBuilder().
                 withType(type).from(fromDate).to(toDate).days(totalDays).build();
