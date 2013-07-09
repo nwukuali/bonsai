@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data xmlns="ns:workflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="ns:workflow resource:WorkflowData">
+	<documentTypes xmlns="ns:workflow/DocumentType"
+		xsi:schemaLocation="ns:workflow/DocumentType resource:DocumentType">
+
+		<documentType>
+			<name>bonsai.leave.application.document</name>
+			<description>bonsai leave appilication workflow document type</description>
+			<label>bonsai leave application</label>
+			<postProcessorName>org.kuali.rice.krad.workflow.postprocessor</postProcessorName>
+			<active>true</active>
+			<routePaths>
+				<routePath>
+					<start name="PreRoute" nextNode="Delegator Node" />
+					<role name="Delegator Node" nextNode="Line Manager Node" />
+					<role name="Line Manager Node" nextNode="Sub Department Manager Node" />
+					<role name="Sub Department Manager Node" nextNode="Notification Node" />
+					<role name="Notification Node" />
+				</routePath>
+			</routePaths>
+			<routeNodes>
+				<start name="PreRoute">
+					<activationType>P</activationType>
+					<mandatoryRoute>false</mandatoryRoute>
+					<finalApproval>false</finalApproval>
+				</start>
+				<role name="Delegator Node">
+					<activationType>P</activationType>
+					<qualifierResolverClass>ToDO: route document to selected stand-in to approve</qualifierResolverClass>
+				</role>
+				<role name="Line Manager Node">
+					<activationType>P</activationType>
+					<qualifierResolverClass>ToDO: get applicant member of group and route to manager group</qualifierResolverClass>
+				</role>
+				<role name="Sub Department Manager Node">
+					<activationType>P</activationType>
+					<qualifierResolverClass>ToDO: route to group "ITC BSS Manager Group" kan hier seker rule template ook gebruik omdat dit altyd na die group toe gaan</qualifierResolverClass>
+				</role>
+				<role name="Notification Node">
+					<activationType>P</activationType>
+					<qualifierResolverClass>ToDO: send FYI to applicant, delegator, Line Manager and ITC BSS Admin Group</qualifierResolverClass>
+				</role>
+			</routeNodes>
+		</documentType>
+		
+	</documentTypes>
+</data>
