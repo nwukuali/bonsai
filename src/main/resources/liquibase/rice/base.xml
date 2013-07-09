@@ -12,4 +12,12 @@
         <sqlFile relativeToChangelogFile="true" path="./bon-person.sql"/>
     </changeSet>
 	
+	<changeSet id="RICE-GROUPS" author="bonsai">
+        <sqlFile relativeToChangelogFile="true" path="./bon_groups.sql"/>
+    </changeSet>
+	
+	<changeSet id="RICE-GROUPS_MBR" author="bonsai">
+        <sqlFile relativeToChangelogFile="true" path="./bon_groups_add_members.sql"/>
+    </changeSet>
+	
 </databaseChangeLog>
