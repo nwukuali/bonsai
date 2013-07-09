@@ -5,7 +5,8 @@ public enum LeaveType {
 	ANNUAL("Annual", 1),
 	SICK("Sick", 2),
 	FAMILY_RESPONSIBILITY("Family Responsibility", 3),
-	STUDY("Study", 4);
+	STUDY("Study", 4),
+    ACCUMULATED("Accumulated", 5);
 
 	LeaveType(String name, int priority){
 		this.name = name;

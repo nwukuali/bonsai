@@ -34,7 +34,6 @@ public class StubLeaveServiceImpl implements LeaveService {
                 new Object[]{person.getEmployeeId()}, new RowMapper<LeaveBalance>() {
                 /*new Object[]{"12927252"}, new RowMapper<LeaveBalance>() {*/
 
-
             @Override
             public LeaveBalance mapRow(ResultSet rs, int rowNum) throws SQLException {
                 LeaveBalance leaveBalance = new LeaveBalance();
@@ -47,15 +46,29 @@ public class StubLeaveServiceImpl implements LeaveService {
             }
         });
         return results;
-
-      /*  List<LeaveBalance> balances = new ArrayList<LeaveBalance>();
-        balances.add(createTempLeaveBalance(LeaveType.ANNUAL, 10, 20, 30, 40));
-        balances.add(createTempLeaveBalance(LeaveType.SICK, 10, 20, 30, 40));
-        balances.add(createTempLeaveBalance(LeaveType.STUDY, 3.5, 2.6, 3, 2.1));
-        return balances;*/
     }
 
     @Override
+    public List<LeaveTransaction> getLeaveTransactionsForCurrentYear(Person person) {
+        List<LeaveTransaction> results = jdbcTemplate.query(
+                "select * from BON_LEAVE_DETAIL where EMPLOYEE_NUMBER = ?",
+                new Object[]{person.getEmployeeId()}, new RowMapper<LeaveTransaction>() {
+                /*new Object[]{"12927252"}, new RowMapper<LeaveBalance>() {*/
+
+            @Override
+            public LeaveTransaction mapRow(ResultSet rs, int rowNum) throws SQLException {
+               LeaveTransaction leaveTransaction = new LeaveTransaction();
+               leaveTransaction.setType(LeaveType.toLeaveType(rs.getString("LEAVE_TYPE")));
+               leaveTransaction.setFromDate(rs.getDate("DATE_START"));
+               leaveTransaction.setToDate(rs.getDate("DATE_END"));
+                leaveTransaction.setTotalDays(rs.getDouble("ABSENCE_DAYS"));
+              return leaveTransaction;
+            }
+        });
+        return results;
+
+
+   /* @Override
     public List<LeaveTransaction> getLeaveTransactionsForCurrentYear(Person person) {
         return getLeaveTransactions(person, DateUtils.round(new Date(), Calendar.YEAR), new Date());
     }
@@ -72,7 +85,7 @@ public class StubLeaveServiceImpl implements LeaveService {
             return results;
         } catch (ParseException e) {
             throw new RuntimeException("Unable to get temp leave transactions", e);
-        }
+        }*/
 
 
 //        List<LeaveTransaction> results = jdbcTemplate.query(

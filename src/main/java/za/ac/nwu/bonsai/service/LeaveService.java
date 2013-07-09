@@ -15,7 +15,7 @@ public interface LeaveService {
 
     List<LeaveTransaction> getLeaveTransactionsForCurrentYear(Person person);
 
-	List<LeaveTransaction> getLeaveTransactions(Person person, Date fromDate, Date toDate);
+	/*List<LeaveTransaction> getLeaveTransactions(Person person, Date fromDate, Date toDate);*/
 
 	File generateLeaveApplicationHardCopy(LeaveApplication leaveApplication);
 

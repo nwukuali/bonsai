@@ -7,9 +7,9 @@ public class LeaveTransaction {
     private LeaveType type;
     private Date fromDate;
     private Date toDate;
-    private int totalDays;
+    private double totalDays;
 
-    private LeaveTransaction() {
+    public LeaveTransaction() {
     }
 
     public LeaveType getType() {
@@ -24,8 +24,25 @@ public class LeaveTransaction {
         return toDate;
     }
 
-    public int getTotalDays() {
+    public double getTotalDays() {
         return totalDays;
+    }
+
+    public void setType(LeaveType type) {
+        this.type = type;
+    }
+
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
+
+    public void setTotalDays(double totalDays) {
+        this.totalDays = totalDays;
     }
 
     public static class LeaveTransactionBuilder {
