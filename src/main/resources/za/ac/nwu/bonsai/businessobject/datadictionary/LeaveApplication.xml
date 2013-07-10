@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="LeaveApplication" parent="DataObjectEntry">
+        <property name="dataObjectClass" value="za.ac.nwu.bonsai.businessobject.LeaveApplication"/>
+        <property name="objectLabel" value="LeaveApplication"/>
+        <!--<property name="collections">-->
+            <!--<list>-->
+                <!--<bean parent="CollectionDefinition" p:name="authors" p:label="Authors" p:shortLabel="Authors" p:elementLabel="Author"/>-->
+            <!--</list>-->
+        <!--</property>-->
+        <property name="attributes">
+            <list>
+                <!--<ref bean="Book-id"/>-->
+                <!--<ref bean="Book-title"/>-->
+                <!--<ref bean="Book-typeCode"/>-->
+                <!--<ref bean="Book-isbn"/>-->
+                <!--<ref bean="Book-publisher"/>-->
+                <!--<ref bean="Book-publicationDate"/>-->
+                <!--<ref bean="Book-price"/>-->
+                <!--<ref bean="Book-rating"/>-->
+                <!--<ref bean="Book-bookType-name"/>-->
+            </list>
+        </property>
+        <property name="titleAttribute" value="id"/>
+        <property name="primaryKeys">
+            <list>
+                <value>id</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
