@@ -8,32 +8,34 @@
         <property name="formClass" value="za.ac.nwu.bonsai.form.LeaveTransactionForm"/>
         <property name="page.items">
             <list>
-                <bean name="LeaveTransactionTable" parent="Uif-VerticalBoxSection" p:width="400px" p:style="margin-top:25px">
+                <ref bean="LeaveTransactionTable"/>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean name="LeaveTransactionTable" parent="Uif-VerticalBoxSection">
+        <property name="items">
+            <list>
+                <bean parent="Uif-HeaderTwo" p:headerText="Leave History"/>
+                <bean parent="Uif-TableCollectionSection">
+                    <property name="collectionObjectClass" value="za.ac.nwu.bonsai.businessobject.LeaveTransaction"/>
+                    <property name="propertyName" value="transactions"/>
+                    <property name="readOnly" value="true"/>
+                    <property name="layoutManager.renderSequenceField" value="false"/>
+                    <property name="layoutManager.richTable.render" value="false"/>
+                    <property name="renderLineActions" value="false"/>
                     <property name="items">
                         <list>
-                            <bean parent="Uif-HeaderTwo" p:headerText="Leave History"/>
-                            <bean parent="Uif-TableCollectionSection">
-                                <property name="collectionObjectClass" value="za.ac.nwu.bonsai.businessobject.LeaveTransaction"/>
-                                <property name="propertyName" value="transactions"/>
-                                <property name="readOnly" value="true"/>
-                                <property name="layoutManager.renderSequenceField" value="false"/>
-                                <property name="layoutManager.richTable.render" value="false"/>
-                                <property name="renderLineActions" value="false"/>
-                                <property name="items">
-                                    <list>
-                                        <bean parent="Uif-InputField" p:label="Type" p:propertyName="type"/>
-                                        <bean parent="Uif-InputField" p:label="Date From" p:propertyName="fromDate"/>
-                                        <bean parent="Uif-InputField" p:label="Date To" p:propertyName="toDate"/>
-                                        <bean parent="Uif-InputField" p:label="Total Days" p:propertyName="totalDays"/>
-                                    </list>
-                                </property>
-                            </bean>
+                            <bean parent="Uif-InputField" p:label="Type" p:propertyName="type"/>
+                            <bean parent="Uif-InputField" p:label="Date From" p:propertyName="fromDate"/>
+                            <bean parent="Uif-InputField" p:label="Date To" p:propertyName="toDate"/>
+                            <bean parent="Uif-InputField" p:label="Total Days" p:propertyName="totalDays"/>
                         </list>
                     </property>
                 </bean>
             </list>
         </property>
-
     </bean>
 
 

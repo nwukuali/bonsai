@@ -36,6 +36,8 @@
   <param name="appserver.url">http://localhost:8080</param>
   <param name="application.url">${appserver.url}/${app.context.name}</param>
 
+  <param name="rice.portal.logout.redirectUrl">${application.url}/mvc/dashboard?viewId=DashboardView&amp;methodToCall=start</param>
+
   <param name="filter.login.class">org.kuali.rice.kew.web.DummyLoginFilter</param>
   <param name="filtermapping.login.1">/*</param>
 

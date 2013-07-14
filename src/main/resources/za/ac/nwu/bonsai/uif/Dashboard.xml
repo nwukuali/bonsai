@@ -6,15 +6,53 @@
 
     <bean id="DashboardView" parent="BON-FormView">
         <property name="formClass" value="za.ac.nwu.bonsai.form.DashboardForm"/>
+        <property name="viewHelperServiceClass" value="za.ac.nwu.bonsai.service.impl.DashboardViewHelperServiceImpl"/>
         <property name="page.items">
             <list>
-                <ref bean="LeaveBalanceTable"/>
-                <ref bean="LeaveTransactionTable"/>
+                <bean parent="Uif-HorizontalBoxSection">
+                    <property name="items">
+                        <list>
+                            <ref bean="LeaveBalanceTable"/>
+                            <ref bean="LeaveTransactionTable"/>
+                        </list>
+                    </property>
+                </bean>
+                <ref bean="ActionListTable"/>
             </list>
         </property>
 
     </bean>
 
+    <bean name="ActionListTable" parent="Uif-VerticalBoxSection">
+        <property name="items">
+            <list>
+                <bean parent="Uif-HeaderTwo" p:headerText="Action List"/>
+                <bean parent="Uif-TableCollectionSection">
+                    <property name="collectionObjectClass" value="za.ac.nwu.bonsai.util.ActionListWrapper"/>
+                    <property name="propertyName" value="actionList"/>
+                    <property name="collectionLookup.quickfinderAction.render" value="false" />
+                    <property name="renderAddLine" value="false"/>
+                    <property name="layoutManager.renderSequenceField" value="false"/>
+                    <property name="layoutManager.applyAlternatingRowStyles" value="false" />
+                    <property name="layoutManager.richTable.render" value="false"/>
+                    <property name="layoutManager.actionFieldPrototype">
+                        <bean parent="Uif-HorizontalFieldGroup" p:align="left" p:required="false" p:label="Actions"/>
+                    </property>
+                    <property name="items">
+                        <list>
+                            <bean parent="Uif-MessageField" p:label="Details" p:messageText="@{#line.details}"/>
+                        </list>
+                    </property>
+                    <property name="lineActions">
+                        <list>
+                            <bean parent="Uif-ActionLink" p:actionLabel="Approve"/>
+                            <bean parent="Uif-ActionLink" p:actionLabel="Disapprove"/>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
 
 </beans>
 

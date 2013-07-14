@@ -2,3 +2,8 @@
     margin-left: 20px;
     float: right;
 }
+
+.bon-page {
+    max-width: 768px;
+    margin-top: 45px;
+}

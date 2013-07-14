@@ -8,35 +8,36 @@
         <property name="formClass" value="za.ac.nwu.bonsai.form.LeaveBalanceForm"/>
         <property name="page.items">
             <list>
-                <bean name="LeaveBalanceTable" parent="Uif-VerticalBoxSection" p:width="800px" p:style="margin-top:25px">
-                    <property name="items">
-                        <list>
-                            <bean parent="Uif-HeaderTwo" p:headerText="Leave Balance"/>
-                            <bean parent="Uif-TableCollectionSection">
-                                <property name="collectionObjectClass" value="za.ac.nwu.bonsai.businessobject.LeaveBalance"/>
-                                <property name="propertyName" value="leaveBalances"/>
-                                <property name="readOnly" value="true"/>
-                                <property name="layoutManager.renderSequenceField" value="false"/>
-                                <property name="layoutManager.richTable.render" value="false"/>
-                                <property name="renderLineActions" value="false"/>
-                                <property name="items">
-                                    <list>
-                                        <bean parent="Uif-InputField" p:label="Type" p:propertyName="type"/>
-                                        <bean parent="Uif-InputField" p:label="Full Cycle Days" p:propertyName="fullCycleDays"/>
-                                        <bean parent="Uif-InputField" p:label="Cycle Days Balance to Date" p:propertyName="cycleDaysBalanceToDate"/>
-                                        <bean parent="Uif-InputField" p:label="Cycle Days Taken to Date" p:propertyName="cycleDaysTakenToDate"/>
-                                        <bean parent="Uif-InputField" p:label="End of Cycle Days Balance" p:propertyName="endOfCycleDaysBalance"/>
-                                    </list>
-                                </property>
-                            </bean>
-                        </list>
-                    </property>
-                </bean>
+                <ref bean="LeaveBalanceTable"/>
             </list>
         </property>
 
     </bean>
 
+    <bean name="LeaveBalanceTable" parent="Uif-VerticalBoxSection">
+        <property name="items">
+            <list>
+                <bean parent="Uif-HeaderTwo" p:headerText="Leave Balance"/>
+                <bean parent="Uif-TableCollectionSection">
+                    <property name="collectionObjectClass" value="za.ac.nwu.bonsai.businessobject.LeaveBalance"/>
+                    <property name="propertyName" value="leaveBalances"/>
+                    <property name="readOnly" value="true"/>
+                    <property name="layoutManager.renderSequenceField" value="false"/>
+                    <property name="layoutManager.richTable.render" value="false"/>
+                    <property name="renderLineActions" value="false"/>
+                    <property name="items">
+                        <list>
+                            <bean parent="Uif-InputField" p:label="Type" p:propertyName="type"/>
+                            <bean parent="Uif-InputField" p:label="Full Cycle Days" p:propertyName="fullCycleDays"/>
+                            <bean parent="Uif-InputField" p:label="Cycle Days Balance to Date" p:propertyName="cycleDaysBalanceToDate"/>
+                            <bean parent="Uif-InputField" p:label="Cycle Days Taken to Date" p:propertyName="cycleDaysTakenToDate"/>
+                            <bean parent="Uif-InputField" p:label="End of Cycle Days Balance" p:propertyName="endOfCycleDaysBalance"/>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
 
 </beans>
 

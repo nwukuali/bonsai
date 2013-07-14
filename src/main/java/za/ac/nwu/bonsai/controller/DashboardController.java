@@ -1,6 +1,7 @@
 package za.ac.nwu.bonsai.controller;
 
 import org.kuali.rice.kim.api.identity.Person;
+import org.kuali.rice.krad.uif.service.ViewHelperService;
 import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.web.controller.UifControllerBase;
 import org.kuali.rice.krad.web.form.UifFormBase;
@@ -14,6 +15,7 @@ import za.ac.nwu.bonsai.form.DashboardForm;
 import za.ac.nwu.bonsai.form.LeaveBalanceForm;
 import za.ac.nwu.bonsai.form.LeaveTransactionForm;
 import za.ac.nwu.bonsai.service.LeaveService;
+import za.ac.nwu.bonsai.service.impl.DashboardViewHelperServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,18 +27,26 @@ public class DashboardController extends UifControllerBase {
 	@Autowired
 	private LeaveService leaveService;
 
+    private Person person;
+
 	@Override
 	protected DashboardForm createInitialForm(HttpServletRequest request) {
-        Person person = GlobalVariables.getUserSession().getPerson();
+        person = GlobalVariables.getUserSession().getPerson();
+
         LeaveBalanceForm leaveBalanceForm = new LeaveBalanceForm(leaveService.getLeaveBalances(person));
         LeaveTransactionForm leaveTransactionForm = new LeaveTransactionForm(leaveService.getLeaveTransactionsForCurrentYear(person));
-		return new DashboardForm(leaveBalanceForm, leaveTransactionForm);
+
+        DashboardForm dashboardForm = new DashboardForm(leaveBalanceForm, leaveTransactionForm);
+
+		return dashboardForm;
 	}
 
 	@Override
 	@RequestMapping(params = "methodToCall=start")
 	public ModelAndView start(@ModelAttribute("KualiForm") UifFormBase form, BindingResult result,
 	                          HttpServletRequest request, HttpServletResponse response) {
+        ((DashboardViewHelperServiceImpl) form.getView().getViewHelperService()).populateActionListForUser((DashboardForm) form, person);
+
 		return super.start(form, result, request, response);
 	}
 }
