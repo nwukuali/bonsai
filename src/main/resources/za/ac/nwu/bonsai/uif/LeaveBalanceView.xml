@@ -8,7 +8,7 @@
         <property name="formClass" value="za.ac.nwu.bonsai.form.LeaveBalanceForm"/>
         <property name="page.items">
             <list>
-                <bean name="LeaveBalanceTable" parent="Uif-VerticalBoxSection" p:width="800px" p:style="margin-top:25px">
+                <bean name="LeaveBalanceTable" parent="Uif-VerticalBoxSection" p:width="800px" p:style="margin-top:50px">
                     <property name="items">
                         <list>
                             <bean parent="Uif-HeaderTwo" p:headerText="Leave Balance"/>

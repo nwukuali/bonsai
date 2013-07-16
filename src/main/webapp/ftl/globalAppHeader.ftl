@@ -8,7 +8,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#"><img id="u100008" class="uif-image uif-boxLayoutVerticalItem clearfix" alt="" src="http://localhost:8080/bonsai/img/logo.png" width="100" height="100"></img></a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="active"><a href="dashboard?viewId=DashboardView&methodToCall=start">Home</a></li>
@@ -21,6 +20,9 @@
                         </ul>
                     </li>
                 </ul>
+
+
+
                 <!--<form class="navbar-form pull-right"><input class="span2" type="text" placeholder="Email"> <input-->
                 <!--class="span2" type="password" placeholder="Password">-->
                 <!--<button type="submit" class="btn">Sign in</button>-->
@@ -29,5 +31,7 @@
             <!--/.nav-collapse --></div>
     </div>
 </div>
+
+<img id="u100008" class="uif-image uif-boxLayoutVerticalItem clearfix" alt="" src="http://localhost:8080/bonsai/img/header.jpg"></img>
 
 </#macro>
