@@ -44,4 +44,6 @@
     </div>
 </div>
 
+<img id="u100008" class="uif-image uif-boxLayoutVerticalItem clearfix" alt="" src="http://localhost:8080/bonsai/img/header.jpg"></img>
+
 </#macro>

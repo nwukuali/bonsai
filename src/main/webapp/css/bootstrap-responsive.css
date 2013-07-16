@@ -965,7 +965,7 @@
   }
   .navbar-fixed-top .navbar-inner,
   .navbar-fixed-bottom .navbar-inner {
-    padding: 5px;
+    padding: 30px;
   }
   .navbar .container {
     width: auto;
@@ -1096,8 +1096,8 @@
     display: block;
   }
   .navbar-static .navbar-inner {
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
   }
 }
 
