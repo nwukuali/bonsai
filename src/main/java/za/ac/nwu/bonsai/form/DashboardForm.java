@@ -15,6 +15,10 @@ public class DashboardForm extends UifFormBase{
 
     private List<ActionListWrapper> actionList;
 
+    public DashboardForm() {
+        super();
+    }
+
     public DashboardForm(LeaveBalanceForm leaveBalanceForm, LeaveTransactionForm leaveTransactionForm) {
         super();
         this.leaveBalanceForm = leaveBalanceForm;

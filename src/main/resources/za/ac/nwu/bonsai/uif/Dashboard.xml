@@ -21,6 +21,22 @@
             </list>
         </property>
 
+        <property name="dialogs">
+            <list>
+                <bean id="showDocumentDialog" parent="BON-DocumentDialog"/>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean id="BON-DocumentDialog" parent="Uif-VerticalBoxSection" p:width="600px">
+        <property name="hidden" value="true"/>
+        <property name="items">
+            <list>
+                <bean parent="Uif-MessageField" p:messageText="Test"/>
+                <bean parent="Uif-ActionLink" p:actionLabel="Close" p:actionScript="lightboxButtonScript();"/>
+            </list>
+        </property>
     </bean>
 
     <bean name="ActionListTable" parent="Uif-VerticalBoxSection">
@@ -36,7 +52,7 @@
                     <property name="layoutManager.applyAlternatingRowStyles" value="false" />
                     <property name="layoutManager.richTable.render" value="false"/>
                     <property name="layoutManager.actionFieldPrototype">
-                        <bean parent="Uif-HorizontalFieldGroup" p:align="left" p:required="false" p:label="Actions"/>
+                        <bean parent="Uif-HorizontalFieldGroup" p:align="center" p:required="false" p:label="Actions"/>
                     </property>
                     <property name="items">
                         <list>
@@ -45,8 +61,9 @@
                     </property>
                     <property name="lineActions">
                         <list>
-                            <bean parent="Uif-ActionLink" p:actionLabel="Approve"/>
-                            <bean parent="Uif-ActionLink" p:actionLabel="Disapprove"/>
+                            <bean parent="Uif-SecondaryActionButton" p:actionLabel="View" p:methodToCall="showDocumentDialog"/>
+                            <bean parent="Uif-SecondaryActionButton" p:actionLabel="Approve"/>
+                            <bean parent="Uif-SecondaryActionButton" p:actionLabel="Disapprove"/>
                         </list>
                     </property>
                 </bean>

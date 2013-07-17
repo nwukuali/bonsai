@@ -14,7 +14,7 @@
 
     </bean>
 
-    <bean name="LeaveBalanceTable" parent="Uif-VerticalBoxSection">
+    <bean name="LeaveBalanceTable" parent="Uif-VerticalBoxSection" p:width="59%">
         <property name="items">
             <list>
                 <bean parent="Uif-HeaderTwo" p:headerText="Leave Balance"/>

@@ -14,7 +14,7 @@
 
     </bean>
 
-    <bean name="LeaveTransactionTable" parent="Uif-VerticalBoxSection">
+    <bean name="LeaveTransactionTable" parent="Uif-VerticalBoxSection" p:width="39%">
         <property name="items">
             <list>
                 <bean parent="Uif-HeaderTwo" p:headerText="Leave History"/>

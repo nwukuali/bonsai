@@ -4,6 +4,10 @@ public class ActionListWrapper {
 
     private String details;
 
+    //Lightbox component variables to customize view
+    private String name;
+    private String surname;
+
     private String documentId;
     private String requestingUserId;
 
@@ -29,5 +33,21 @@ public class ActionListWrapper {
 
     public void setRequestingUserId(String requestingUserId) {
         this.requestingUserId = requestingUserId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }

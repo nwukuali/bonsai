@@ -8,12 +8,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#"><img id="u100008" class="uif-image uif-boxLayoutVerticalItem clearfix" alt="" src="http://localhost:8080/bonsai/img/logo.png" width="100" height="100"></img></a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="active"><a href="dashboard?viewId=DashboardView&methodToCall=start">Home</a></li>
-                    <li><a href="leavebalance?viewId=LeaveBalanceView&methodToCall=start">Balances</a></li>
-                    <li><a href="leavetransaction?viewId=LeaveTransactionView&methodToCall=start">History</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration <b
                             class="caret"></b></a>
                         <ul class="dropdown-menu">

@@ -49,4 +49,15 @@ public class DashboardController extends UifControllerBase {
 
 		return super.start(form, result, request, response);
 	}
+
+    @RequestMapping(params = "methodToCall=showDocumentDialog")
+    public ModelAndView showDocumentDialog(@ModelAttribute("KualiForm") UifFormBase form, BindingResult result,
+                              HttpServletRequest request, HttpServletResponse response) {
+        String dialogId = "showDocumentDialog";
+        if(!hasDialogBeenDisplayed(dialogId, form)) {
+            return showDialog(dialogId, form, request, response);
+        }
+        form.getDialogManager().removeAllDialogs();
+        return getUIFModelAndView(form);
+    }
 }
