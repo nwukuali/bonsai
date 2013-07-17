@@ -1,53 +1,48 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <import resource="persistence-context.xml" />
+	<bean id="bonsaiModuleConfiguration" class="org.kuali.rice.krad.bo.ModuleConfiguration">
+		<property name="namespaceCode" value="BON" />
+		<property name="initializeDataDictionary" value="true" />
+		<property name="dataDictionaryPackages">
+			<list>
+				<!--<value>classpath:org/kuali/rice/krad/demo/travel/fiscalofficer/FiscalOfficer.xml</value> -->
 
-    <bean id="bonsaiModuleConfiguration" class="org.kuali.rice.krad.bo.ModuleConfiguration">
-        <property name="namespaceCode" value="BON"/>
-        <property name="dataSourceName" value="bonsaiDataSource"/>
-    	<property name="entityManager" ref="bonsaiEntityManager"/>
-        <property name="initializeDataDictionary" value="true"/>
-        <property name="dataDictionaryPackages">
-            <list>
-                <!--<value>classpath:org/kuali/rice/krad/demo/travel/fiscalofficer/FiscalOfficer.xml</value>-->
+				<!-- KRAD -->
+				<value>classpath:za/ac/nwu/bonsai/uif/Application.xml</value>
+				<value>classpath:za/ac/nwu/bonsai/uif/Dashboard.xml</value>
+				<value>classpath:za/ac/nwu/bonsai/uif/LeaveBalanceView.xml</value>
+				<value>classpath:za/ac/nwu/bonsai/uif/LeaveTransactionView.xml</value>
+				<value>classpath:za/ac/nwu/bonsai/uif/HolidayMaintenanceView.xml</value>
+				<value>classpath:za/ac/nwu/bonsai/uif/LeaveApplicationView.xml</value>
 
-                <!-- KRAD -->
-                <value>classpath:za/ac/nwu/bonsai/uif/Application.xml</value>
-                <value>classpath:za/ac/nwu/bonsai/uif/Dashboard.xml</value>
-                <value>classpath:za/ac/nwu/bonsai/uif/LeaveBalanceView.xml</value>
-                <value>classpath:za/ac/nwu/bonsai/uif/LeaveTransactionView.xml</value>
-                <value>classpath:za/ac/nwu/bonsai/uif/HolidayMaintenanceView.xml</value>
-                <value>classpath:za/ac/nwu/bonsai/uif/LeaveApplicationView.xml</value>
+				<value>classpath:za/ac/nwu/bonsai/def/HolidayMaintenance.xml</value>
 
-                <value>classpath:za/ac/nwu/bonsai/def/HolidayMaintenance.xml</value>
-                
-								<!-- Documents -->
-                <value>classpath:za/ac/nwu/bonsai/document/LeaveApplicationDocument.xml</value>
-                
-            </list>
-        </property>
-        <property name="packagePrefixes">
-      		<list>
-        		<value>za.ac.nwu.bonsai.businessobject</value>
-      		</list>
-    	</property>
-        <property name="resourceBundleNames">
-            <list>
-                <!--<value>org.kuali.rice.krad.demo.uif.components.resources.KradSampleAppDemoResources</value>-->
-            </list>
-        </property>
-    </bean>
+				<!-- Documents -->
+				<value>classpath:za/ac/nwu/bonsai/document/LeaveApplicationDocument.xml</value>
 
-    <bean id="maintenanceService" class="za.ac.nwu.bonsai.service.impl.HolidayMaintenanceServiceImpl"/>
+			</list>
+		</property>
+		<property name="databaseRepositoryFilePaths">
+			<list>
+				<value>za/ac/nwu/bonsai/OJB-repository-bon.xml</value>
+			</list>
+		</property>
+		<property name="packagePrefixes">
+			<list>
+				<value>za.ac.nwu.bonsai.businessobject</value>
+			</list>
+		</property>
+		<property name="resourceBundleNames">
+			<list>
+				<!--<value>org.kuali.rice.krad.demo.uif.components.resources.KradSampleAppDemoResources</value> -->
+			</list>
+		</property>
+	</bean>
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-    <property name="dataSource" ref="bonsaiDataSource"/>
-    </bean>
-    
-    <bean id="bonsaiModuleService" class="org.kuali.rice.krad.service.impl.ModuleServiceBase">
+	<bean id="bonsaiModuleService" class="org.kuali.rice.krad.service.impl.ModuleServiceBase">
 		<property name="moduleConfiguration" ref="bonsaiModuleConfiguration" />
 	</bean>
 

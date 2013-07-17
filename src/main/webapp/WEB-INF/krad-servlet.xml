@@ -8,7 +8,7 @@
                         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
     <import resource="krad-base-servlet.xml"/>
-    <import resource="classpath:za/ac/nwu/bonsai/main-context.xml"/>
+    <import resource="classpath:za/ac/nwu/bonsai/jdbc-context.xml" />
 
     <context:component-scan base-package="za.ac.nwu.bonsai.controller, za.ac.nwu.bonsai.service"/>
 
