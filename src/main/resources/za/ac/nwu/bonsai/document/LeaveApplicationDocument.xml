@@ -7,7 +7,6 @@
     <bean id="LeaveApplicationDocumentType" parent="TransactionalDocumentEntry">
         <property name="documentTypeName" value="LeaveApplicationDocumentType"/>
         <property name="documentClass" value="za.ac.nwu.bonsai.document.LeaveApplicationDocument"/>
-        <!--<property name="businessRulesClass" value="edu.sampleu.bookstore.rule.BookOrderDocumentRule"/>-->
     </bean>
 
 </beans>

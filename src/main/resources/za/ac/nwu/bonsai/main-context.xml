@@ -23,6 +23,10 @@
                 <value>classpath:za/ac/nwu/bonsai/uif/LeaveApplicationView.xml</value>
 
                 <value>classpath:za/ac/nwu/bonsai/def/HolidayMaintenance.xml</value>
+                
+								<!-- Documents -->
+                <value>classpath:za/ac/nwu/bonsai/document/LeaveApplicationDocument.xml</value>
+                
             </list>
         </property>
         <property name="packagePrefixes">

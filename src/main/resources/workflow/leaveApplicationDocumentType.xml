@@ -6,10 +6,11 @@
 		xsi:schemaLocation="ns:workflow/DocumentType resource:DocumentType">
 
 		<documentType>
-			<name>bonsai.leave.application.document</name>
-			<description>bonsai leave appilication workflow document type</description>
-			<label>bonsai leave application</label>
-			<postProcessorName>org.kuali.rice.krad.workflow.postprocessor</postProcessorName>
+			<name>LeaveApplicationDocumentType</name>
+			<description>Bonsai leave appilication workflow document type</description>
+			<label>Bonsai leave application</label>
+			<parent>RiceDocument</parent>
+			<postProcessorName>org.kuali.rice.krad.workflow.PostProcessor</postProcessorName>
 			<active>true</active>
 			<routePaths>
 				<routePath>
@@ -28,19 +29,19 @@
 				</start>
 				<role name="Delegator Node">
 					<activationType>P</activationType>
-					<qualifierResolverClass>ToDO: route document to selected stand-in to approve</qualifierResolverClass>
+<!-- 					<qualifierResolverClass>ToDO: route document to selected stand-in to approve</qualifierResolverClass> -->
 				</role>
 				<role name="Line Manager Node">
 					<activationType>P</activationType>
-					<qualifierResolverClass>ToDO: get applicant member of group and route to manager group</qualifierResolverClass>
+<!-- 					<qualifierResolverClass>ToDO: get applicant member of group and route to manager group</qualifierResolverClass> -->
 				</role>
 				<role name="Sub Department Manager Node">
 					<activationType>P</activationType>
-					<qualifierResolverClass>ToDO: route to group "ITC BSS Manager Group" kan hier seker rule template ook gebruik omdat dit altyd na die group toe gaan</qualifierResolverClass>
+<!-- 					<qualifierResolverClass>ToDO: route to group "ITC BSS Manager Group" kan hier seker rule template ook gebruik omdat dit altyd na die group toe gaan</qualifierResolverClass> -->
 				</role>
 				<role name="Notification Node">
 					<activationType>P</activationType>
-					<qualifierResolverClass>ToDO: send FYI to applicant, delegator, Line Manager and ITC BSS Admin Group</qualifierResolverClass>
+<!-- 					<qualifierResolverClass>ToDO: send FYI to applicant, delegator, Line Manager and ITC BSS Admin Group</qualifierResolverClass> -->
 				</role>
 			</routeNodes>
 		</documentType>
