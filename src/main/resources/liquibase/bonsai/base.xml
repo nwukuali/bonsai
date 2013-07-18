@@ -46,6 +46,14 @@
           </column>
       </createTable>
     </changeSet>
+    
+    <changeSet id="BON-22" author="bonsai">
+      <createTable tableName="BON_LEAVE_APPS_ID_S">
+          <column autoIncrement="true" name="ID" type="bigint">
+              <constraints primaryKey="true" nullable="false" />
+          </column>
+      </createTable>
+    </changeSet>
 
   
 </databaseChangeLog>

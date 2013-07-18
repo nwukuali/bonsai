@@ -1,43 +1,22 @@
 package za.ac.nwu.bonsai.businessobject;
 
 
+import java.util.Date;
+
 import org.apache.commons.lang.time.DateUtils;
 import org.kuali.rice.krad.bo.PersistableBusinessObjectBase;
 
-import javax.persistence.*;
-import java.util.Date;
-
-@Entity
-@Table(name="BON_LEAVE_APPS_T")
 public class LeaveApplication extends PersistableBusinessObjectBase {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "ID")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-
-	@Column(name = "TYPE", nullable = false)
-	@Enumerated(EnumType.STRING)
 	private LeaveType leaveType;
-
-	@Column(name = "DT_FROM",nullable = false)
 	private Date dateFrom;
-
-	@Column(name = "DT_TO", nullable = false)
 	private Date dateTo;
-
-	@Column(name = "REASON", nullable = true)
 	private String reason;
-
-	@Column(name = "CONTACT_NBR", nullable = true)
 	private String contactNumber;
-
-	@Column(name = "CONTACT_ADR", nullable = true)
 	private String contactAddress;
-
-	@Column(name = "PERSON_ID")
 	private String personId;
 
 	public LeaveApplication(){
@@ -99,5 +78,13 @@ public class LeaveApplication extends PersistableBusinessObjectBase {
 
 	public void setContactAddress(String contactAddress) {
 		this.contactAddress = contactAddress;
+	}
+
+	public String getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(String personId) {
+		this.personId = personId;
 	}
 }
