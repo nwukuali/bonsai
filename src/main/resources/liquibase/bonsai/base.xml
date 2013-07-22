@@ -18,7 +18,8 @@
               <constraints primaryKey="true" nullable="false" />
           </column>
           <column name="LEAVE_TYPE" type="varchar(10)">
-              <constraints nullable="false" />
+<!--           this should be false, but just trying to get things roling -->
+              <constraints nullable="true" />
           </column>
           <column name="DT_FROM" type="datetime">
               <constraints nullable="false" />
@@ -53,7 +54,21 @@
               <constraints primaryKey="true" nullable="false" />
           </column>
       </createTable>
+      
+      <createTable tableName="BON_LEAVE_APPS_DOC_T">
+          <column name="DOC_HDR_ID" type="bigint(10)">
+              <constraints primaryKey="true" nullable="false" />
+          </column>
+          <column name="OBJ_ID" type="varchar(36)">
+              <constraints nullable="false" />
+          </column>
+          <column name="VER_NBR" type="decimal(8,0)">
+              <constraints nullable="false" />
+          </column>
+          <column name="LEAVE_APPS_ID" type="bigint(10)">
+              <constraints nullable="false" />
+          </column>         
+      </createTable>
     </changeSet>
 
-  
 </databaseChangeLog>

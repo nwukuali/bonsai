@@ -11,8 +11,10 @@ public class LeaveTypeConversion implements FieldConversion {
 
 	@Override
 	public Object javaToSql(Object source) throws ConversionException {
-		if (Enum.class.isAssignableFrom(LeaveType.class)) {
+		if ((source != null) && Object.class.equals(LeaveType.class)) {
 			return ((LeaveType)source).getName();
+		} else if (source == null) {
+			return null;
 		} else {
 			throw new ConversionException("source is not a LeaveType");
 		}
@@ -20,7 +22,11 @@ public class LeaveTypeConversion implements FieldConversion {
 
 	@Override
 	public Object sqlToJava(Object source) throws ConversionException {
-		return LeaveType.toLeaveType((String) source);
+		if (source != null) {
+			return LeaveType.toLeaveType((String) source);
+		} else {
+			return null;
+		}
 	}
 
 }

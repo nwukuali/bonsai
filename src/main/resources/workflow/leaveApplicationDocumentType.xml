@@ -10,7 +10,8 @@
 			<description>Bonsai leave appilication workflow document type</description>
 			<label>Bonsai leave application</label>
 			<parent>RiceDocument</parent>
-			<postProcessorName>org.kuali.rice.krad.workflow.PostProcessor</postProcessorName>
+			<postProcessorName>org.kuali.rice.krad.workflow.postprocessor.KualiPostProcessor</postProcessorName>
+			<docHandler>${application.url}/mvc/leaveApplication?methodToCall=docHandler&amp;command=initiate</docHandler>
 			<active>true</active>
 			<routePaths>
 				<routePath>

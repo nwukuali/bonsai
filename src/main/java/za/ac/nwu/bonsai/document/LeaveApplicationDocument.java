@@ -7,6 +7,7 @@ public class LeaveApplicationDocument extends TransactionalDocumentBase {
 
 	private static final long serialVersionUID = 1L;
 	
+	private Long leaveApplicationId;
 	private LeaveApplication leaveApplication;
 	
 	public LeaveApplicationDocument() {
@@ -23,5 +24,13 @@ public class LeaveApplicationDocument extends TransactionalDocumentBase {
 
 	public LeaveApplication getLeaveApplication() {
 		return leaveApplication;
+	}
+
+	public Long getLeaveApplicationId() {
+		return leaveApplicationId;
+	}
+
+	public void setLeaveApplicationId(Long leaveApplicationId) {
+		this.leaveApplicationId = leaveApplicationId;
 	}
 }

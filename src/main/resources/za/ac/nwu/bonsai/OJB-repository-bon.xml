@@ -18,7 +18,7 @@
     
     <class-descriptor class="za.ac.nwu.bonsai.businessobject.LeaveApplication" table="BON_LEAVE_APPS_T">
         <field-descriptor name="id" column="ID" jdbc-type="BIGINT" primarykey="true" autoincrement="true" sequence-name="BON_LEAVE_APPS_ID_S"/>
-        <field-descriptor name="leaveType" column="TYPE" jdbc-type="VARCHAR" nillable="false" conversion="za.ac.nwu.bonsai.persistence.ojb.conversion.LeaveTypeConversion"/>
+        <field-descriptor name="leaveType" column="LEAVE_TYPE" jdbc-type="VARCHAR" nillable="false" conversion="za.ac.nwu.bonsai.persistence.ojb.conversion.LeaveTypeConversion"/>
         <field-descriptor name="dateFrom" column="DT_FROM" jdbc-type="DATE" nillable="false"/>
         <field-descriptor name="dateTo" column="DT_TO" jdbc-type="DATE" nillable="false"/>
         <field-descriptor name="reason" column="REASON" jdbc-type="VARCHAR"/>
@@ -28,5 +28,22 @@
         <field-descriptor name="objectId" column="OBJ_ID" jdbc-type="VARCHAR" index="true"/>
         <field-descriptor name="versionNumber" column="VER_NBR" jdbc-type="BIGINT" locking="true"/>
     </class-descriptor>
+
+	<class-descriptor class="za.ac.nwu.bonsai.document.LeaveApplicationDocument" table="BON_LEAVE_APPS_DOC_T">
+		<field-descriptor name="documentNumber" primarykey="true" column="DOC_HDR_ID" jdbc-type="VARCHAR" />
+		<field-descriptor name="objectId" column="OBJ_ID" jdbc-type="VARCHAR" index="true" />
+		<field-descriptor name="versionNumber" column="VER_NBR"	jdbc-type="BIGINT" locking="true" />
+		<field-descriptor name="leaveApplicationId" column="LEAVE_APPS_ID" jdbc-type="BIGINT" />
+
+		<reference-descriptor name="leaveApplication" class-ref="za.ac.nwu.bonsai.businessobject.LeaveApplication"
+			auto-retrieve="true" auto-update="object" auto-delete="object">
+			<foreignkey field-ref="leaveApplicationId" />
+		</reference-descriptor>
+
+		<reference-descriptor name="documentHeader"	class-ref="org.kuali.rice.krad.bo.DocumentHeader"
+			auto-retrieve="true" auto-update="object" auto-delete="object">
+			<foreignkey field-ref="documentNumber" />
+		</reference-descriptor>
+	</class-descriptor>
 
 </descriptor-repository>
