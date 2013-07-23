@@ -22,7 +22,7 @@ public class LeaveTypeKeyValues extends KeyValuesBase {
 		keyValues.add(new ConcreteKeyValue("",""));
 		
 		for (LeaveType type : types) {
-			keyValues.add(new ConcreteKeyValue(type.getName(), type.getName()));
+			keyValues.add(new ConcreteKeyValue(type.name(), type.getName()));
 		}
 		
 		return keyValues;

@@ -24,7 +24,7 @@
         <field-descriptor name="reason" column="REASON" jdbc-type="VARCHAR"/>
         <field-descriptor name="contactNumber" column="CONTACT_NBR" jdbc-type="VARCHAR" index="true"/>
         <field-descriptor name="contactAddress" column="CONTACT_ADR" jdbc-type="VARCHAR" locking="true"/>
-        <field-descriptor name="personId" column="PERSON_ID" jdbc-type="BIGINT" locking="true"/>
+        <field-descriptor name="personId" column="PERSON_ID" jdbc-type="VARCHAR" locking="true"/>
         <field-descriptor name="objectId" column="OBJ_ID" jdbc-type="VARCHAR" index="true"/>
         <field-descriptor name="versionNumber" column="VER_NBR" jdbc-type="BIGINT" locking="true"/>
     </class-descriptor>

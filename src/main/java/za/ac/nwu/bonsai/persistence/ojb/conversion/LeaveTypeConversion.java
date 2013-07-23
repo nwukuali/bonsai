@@ -11,8 +11,8 @@ public class LeaveTypeConversion implements FieldConversion {
 
 	@Override
 	public Object javaToSql(Object source) throws ConversionException {
-		if ((source != null) && Object.class.equals(LeaveType.class)) {
-			return ((LeaveType)source).getName();
+		if ((source != null) && source.getClass().isAssignableFrom(LeaveType.class)) {
+			return ((LeaveType)source).name();
 		} else if (source == null) {
 			return null;
 		} else {

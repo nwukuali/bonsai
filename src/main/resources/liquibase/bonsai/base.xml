@@ -17,9 +17,8 @@
           <column name="ID" type="bigint(10)">
               <constraints primaryKey="true" nullable="false" />
           </column>
-          <column name="LEAVE_TYPE" type="varchar(10)">
-<!--           this should be false, but just trying to get things roling -->
-              <constraints nullable="true" />
+          <column name="LEAVE_TYPE" type="varchar(40)">
+              <constraints nullable="false" />
           </column>
           <column name="DT_FROM" type="datetime">
               <constraints nullable="false" />
@@ -42,7 +41,7 @@
           <column name="VER_NBR" type="decimal(8,0)">
               <constraints nullable="false" />
           </column>
-          <column name="PERSON_ID" type="varchar(36)">
+          <column name="PERSON_ID" type="varchar(40)">
               <constraints nullable="true" />
           </column>
       </createTable>
