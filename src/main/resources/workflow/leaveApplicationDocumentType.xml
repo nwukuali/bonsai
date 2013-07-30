@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <data xmlns="ns:workflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="ns:workflow resource:WorkflowData">
+	xsi:schemaLocation="ns:workflow resource:WorkflowData">	
 	<documentTypes xmlns="ns:workflow/DocumentType"
 		xsi:schemaLocation="ns:workflow/DocumentType resource:DocumentType">
-
 		<documentType>
 			<name>LeaveApplicationDocumentType</name>
 			<description>Bonsai leave appilication workflow document type</description>
 			<label>Bonsai leave application</label>
 			<parent>RiceDocument</parent>
 			<postProcessorName>org.kuali.rice.krad.workflow.postprocessor.KualiPostProcessor</postProcessorName>
-			<docHandler>${application.url}/mvc/leaveApplication?methodToCall=docHandler&amp;command=initiate</docHandler>
+			<docHandler>${application.url}/mvc/leaveApplication?methodToCall=docHandler&amp;viewId=LeaveApplicationView</docHandler>
 			<active>true</active>
 			<routePaths>
 				<routePath>
@@ -30,22 +29,25 @@
 				</start>
 				<role name="Delegator Node">
 					<activationType>P</activationType>
-<!-- 					<qualifierResolverClass>ToDO: route document to selected stand-in to approve</qualifierResolverClass> -->
+					<!-- route document to selected stand-in to approve -->
+<!-- 					<qualifierResolverClass>za.ac.nwu.bonsai.kew.resolver.DelegateResolver</qualifierResolverClass> -->
 				</role>
 				<role name="Line Manager Node">
 					<activationType>P</activationType>
-<!-- 					<qualifierResolverClass>ToDO: get applicant member of group and route to manager group</qualifierResolverClass> -->
+					<!-- get applicant member of group and route to manager group -->
+					<qualifierResolverClass>za.ac.nwu.bonsai.kew.resolver.ResponsiblePersonResolver</qualifierResolverClass>
 				</role>
 				<role name="Sub Department Manager Node">
 					<activationType>P</activationType>
-<!-- 					<qualifierResolverClass>ToDO: route to group "ITC BSS Manager Group" kan hier seker rule template ook gebruik omdat dit altyd na die group toe gaan</qualifierResolverClass> -->
+					<!-- route to group "ITC BSS Manager Group" kan hier seker rule template ook gebruik omdat dit altyd na die group toe gaan -->
+					<qualifierResolverClass>za.ac.nwu.bonsai.kew.resolver.ResponsiblePersonResolver</qualifierResolverClass>
 				</role>
 				<role name="Notification Node">
 					<activationType>P</activationType>
-<!-- 					<qualifierResolverClass>ToDO: send FYI to applicant, delegator, Line Manager and ITC BSS Admin Group</qualifierResolverClass> -->
+					<!-- send FYI to applicant, delegator, Line Manager and ITC BSS Admin Group -->
+					<qualifierResolverClass>za.ac.nwu.bonsai.kew.resolver.NotificationPrinciplesResolver</qualifierResolverClass>
 				</role>
 			</routeNodes>
-		</documentType>
-		
+		</documentType>		
 	</documentTypes>
 </data>

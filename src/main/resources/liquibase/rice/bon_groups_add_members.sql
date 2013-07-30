@@ -173,3 +173,41 @@ INSERT INTO bonsai.KRIM_GRP_MBR_ID_S VALUES (NULL)
 INSERT INTO bonsai.KRIM_GRP_MBR_T (GRP_MBR_ID, VER_NBR, OBJ_ID, GRP_ID, MBR_ID, MBR_TYP_CD, ACTV_FRM_DT, ACTV_TO_DT, LAST_UPDT_DT)
 VALUES  ((Select max(id) from bonsai.krim_grp_mbr_id_s), 1, uuid(), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Admin Group'),'12324256', 'P', NULL, NULL, NOW())
 ;
+-- Link groups with Line Manager group
+INSERT INTO bonsai.krim_grp_mbr_id_s VALUES (NULL)
+;
+INSERT INTO bonsai.KRIM_GRP_MBR_T (GRP_MBR_ID, VER_NBR, OBJ_ID, GRP_ID, MBR_ID, MBR_TYP_CD, ACTV_FRM_DT, ACTV_TO_DT, LAST_UPDT_DT)
+VALUES  ((Select max(id) from bonsai.krim_grp_mbr_id_s), 1, uuid(), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Internal Development Manager Group'), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Internal Development Group'), 'G', NULL, NULL, NOW())
+;
+INSERT INTO bonsai.krim_grp_mbr_id_s VALUES (NULL)
+;
+INSERT INTO bonsai.KRIM_GRP_MBR_T (GRP_MBR_ID, VER_NBR, OBJ_ID, GRP_ID, MBR_ID, MBR_TYP_CD, ACTV_FRM_DT, ACTV_TO_DT, LAST_UPDT_DT)
+VALUES  ((Select max(id) from bonsai.krim_grp_mbr_id_s), 1, uuid(), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Support Manager Group'), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Support Group'), 'G', NULL, NULL, NOW())
+;
+INSERT INTO bonsai.krim_grp_mbr_id_s VALUES (NULL)
+;
+INSERT INTO bonsai.KRIM_GRP_MBR_T (GRP_MBR_ID, VER_NBR, OBJ_ID, GRP_ID, MBR_ID, MBR_TYP_CD, ACTV_FRM_DT, ACTV_TO_DT, LAST_UPDT_DT)
+VALUES  ((Select max(id) from bonsai.krim_grp_mbr_id_s), 1, uuid(), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Kuali Development Manager Group'), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Kuali Development Group'), 'G', NULL, NULL, NOW())
+;
+-- Link Line Manager groups with Manager
+INSERT INTO bonsai.krim_grp_mbr_id_s VALUES (NULL)
+;
+INSERT INTO bonsai.KRIM_GRP_MBR_T (GRP_MBR_ID, VER_NBR, OBJ_ID, GRP_ID, MBR_ID, MBR_TYP_CD, ACTV_FRM_DT, ACTV_TO_DT, LAST_UPDT_DT)
+VALUES  ((Select max(id) from bonsai.krim_grp_mbr_id_s), 1, uuid(), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Manager Group'), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Internal Development Manager Group'), 'G', NULL, NULL, NOW())
+;
+INSERT INTO bonsai.krim_grp_mbr_id_s VALUES (NULL)
+;
+INSERT INTO bonsai.KRIM_GRP_MBR_T (GRP_MBR_ID, VER_NBR, OBJ_ID, GRP_ID, MBR_ID, MBR_TYP_CD, ACTV_FRM_DT, ACTV_TO_DT, LAST_UPDT_DT)
+VALUES  ((Select max(id) from bonsai.krim_grp_mbr_id_s), 1, uuid(), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Manager Group'), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Support Manager Group'), 'G', NULL, NULL, NOW())
+;
+INSERT INTO bonsai.krim_grp_mbr_id_s VALUES (NULL)
+;
+INSERT INTO bonsai.KRIM_GRP_MBR_T (GRP_MBR_ID, VER_NBR, OBJ_ID, GRP_ID, MBR_ID, MBR_TYP_CD, ACTV_FRM_DT, ACTV_TO_DT, LAST_UPDT_DT)
+VALUES  ((Select max(id) from bonsai.krim_grp_mbr_id_s), 1, uuid(), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Manager Group'), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Kuali Development Manager Group'), 'G', NULL, NULL, NOW())
+;
+-- Link Manager groups with Admin Group
+INSERT INTO bonsai.krim_grp_mbr_id_s VALUES (NULL)
+;
+INSERT INTO bonsai.KRIM_GRP_MBR_T (GRP_MBR_ID, VER_NBR, OBJ_ID, GRP_ID, MBR_ID, MBR_TYP_CD, ACTV_FRM_DT, ACTV_TO_DT, LAST_UPDT_DT)
+VALUES  ((Select max(id) from bonsai.krim_grp_mbr_id_s), 1, uuid(), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Admin Group'), (Select grp_id from bonsai.KRIM_GRP_T  where grp_nm = 'ITC BSS Manager Group'), 'G', NULL, NULL, NOW())
+;

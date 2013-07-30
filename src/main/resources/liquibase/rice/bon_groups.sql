@@ -65,4 +65,3 @@ INSERT INTO bonsai.KRIM_GRP_ID_S VALUES (NULL)
 INSERT INTO bonsai.KRIM_GRP_T (GRP_ID, OBJ_ID, VER_NBR, GRP_NM, NMSPC_CD, GRP_DESC, KIM_TYP_ID, ACTV_IND, LAST_UPDT_DT )
 VALUES  ((Select max(id) from bonsai.KRIM_GRP_ID_S), uuid(), '1', 'ITC BSS Admin Group', 'KUALI', 'ITC BSS Admin Group', '1', 'Y', NOW())
 ;
-

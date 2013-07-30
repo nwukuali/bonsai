@@ -19,5 +19,9 @@
 	<changeSet id="RICE-GROUPS_MBR" author="bonsai">
         <sqlFile relativeToChangelogFile="true" path="./bon_groups_add_members.sql"/>
     </changeSet>
+    
+    <changeSet id="RICE-ROLES-RESP" author="bonsai">
+        <sqlFile relativeToChangelogFile="true" path="./bon_wf_roles_responsibilities.sql"/>
+    </changeSet>
 	
 </databaseChangeLog>

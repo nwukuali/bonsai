@@ -45,5 +45,15 @@
 	<bean id="bonsaiModuleService" class="org.kuali.rice.krad.service.impl.ModuleServiceBase">
 		<property name="moduleConfiguration" ref="bonsaiModuleConfiguration" />
 	</bean>
+    
+    <bean class="org.kuali.rice.core.framework.resourceloader.RiceSpringResourceLoaderConfigurer">
+    	<property name="localServiceName" value="BonsaiAppContext"/>
+  	</bean>
+ 	
+	<bean id="parentGroupDerivedRoleService" class="za.ac.nwu.bonsai.kew.role.ParentGroupDerivedRoleServiceImpl"/>
+	
+	<bean id="leaveNotificationDerivedRoleService" class="za.ac.nwu.bonsai.kew.role.LeaveNotificationDerivedRoleServiceImpl">
+		<property name="parentGroupDerivedRoleService" ref="parentGroupDerivedRoleService"/>
+	</bean>
 
 </beans>
