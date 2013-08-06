@@ -11,7 +11,8 @@
         p:template="/ftl/globalAppFooter.ftl" p:render="true"
         p:templateName="kradappfooter"/>
 
-    <bean id="BON-FormView" abstract="true" parent="Uif-FormView">
+    <bean id="BON-FormView" abstract="true" parent="BON-FormView-parentBean"/>
+    <bean id="BON-FormView-parentBean" abstract="true" parent="Uif-FormView">
         <property name="applicationHeader" ref="BON-GlobalApplicationHeader"/>
         <property name="applicationFooter" ref="BON-GlobalApplicationFooter"/>
         <property name="additionalCssFiles">
@@ -46,6 +47,38 @@
                     </list>
                 </property>
             </bean>
+        </property>
+    </bean>
+
+    <bean id="Uif-DocumentView" abstract="true" parent="Uif-DocumentView-parentBean"/>
+    <bean id="Uif-DocumentView-parentBean" abstract="true"
+          class="org.kuali.rice.krad.uif.view.DocumentView" parent="BON-FormView">
+        <property name="viewTypeName" value="DOCUMENT"/>
+        <property name="formClass" value="org.kuali.rice.krad.web.form.DocumentFormBase"/>
+        <property name="defaultBindingObjectPath" value="document"/>
+        <property name="presentationControllerClass"
+                  value="org.kuali.rice.krad.document.DocumentViewPresentationControllerBase"/>
+        <property name="authorizerClass" value="org.kuali.rice.krad.document.DocumentViewAuthorizerBase"/>
+        <property name="viewHelperServiceClass"
+                  value="org.kuali.rice.krad.uif.service.impl.DocumentViewHelperServiceImpl"/>
+    </bean>
+
+    <bean id="BON-PrimaryActionButton" abstract="true" parent="BON-PrimaryActionButton-parentBean"/>
+    <bean id="BON-PrimaryActionButton-parentBean" parent="Uif-PrimaryActionButton">
+        <property name="cssClasses">
+            <list merge="false">
+                <value>btn</value>
+                <value>btn-primary</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="BON-SecondaryActionButton" abstract="true" parent="BON-SecondaryActionButton-parentBean"/>
+    <bean id="BON-SecondaryActionButton-parentBean" parent="Uif-SecondaryActionButton">
+        <property name="cssClasses">
+            <list merge="false">
+                <value>btn</value>
+            </list>
         </property>
     </bean>
 </beans>

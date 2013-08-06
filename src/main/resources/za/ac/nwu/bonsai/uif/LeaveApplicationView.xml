@@ -12,9 +12,19 @@
 				<ref bean="LeaveApplication-MainPage" />
 			</list>
 		</property>
+        <property name="footer">
+            <bean parent="Uif-DocumentPageFooter">
+                <property name="items">
+                    <list>
+                        <bean parent="BON-PrimaryActionButton" p:actionLabel="Submit" p:methodToCall="route" p:performClientSideValidation="true"/>
+                        <bean parent="Uif-ActionLink" p:actionLabel="Cancel" p:methodToCall="cancel"/>
+                    </list>
+                </property>
+            </bean>
+        </property>
 	</bean>
 
-	<bean id="LeaveApplication-MainPage" parent="Uif-DocumentPage">
+	<bean id="LeaveApplication-MainPage" parent="Uif-VerticalBoxSection">
 		<property name="items">
 			<list merge="true">
 				<bean parent="Uif-GridGroup" p:fieldBindingObjectPath="leaveApplication" p:layoutManager.numberOfColumns="2">

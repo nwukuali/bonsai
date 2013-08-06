@@ -70,4 +70,8 @@
       </createTable>
     </changeSet>
 
+    <changeSet id="BON-25" author="bonsai">
+        <sqlFile relativeToChangelogFile="true" path="./2013-08-06-BON-Document-Role-Type.sql"/>
+    </changeSet>
+
 </databaseChangeLog>

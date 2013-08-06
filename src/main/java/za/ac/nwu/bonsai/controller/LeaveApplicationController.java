@@ -55,5 +55,4 @@ public class LeaveApplicationController extends TransactionalDocumentControllerB
 
         return getUIFModelAndView(form);
     }
-    
 }

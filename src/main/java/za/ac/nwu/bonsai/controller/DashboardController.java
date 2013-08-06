@@ -3,6 +3,7 @@ package za.ac.nwu.bonsai.controller;
 import org.kuali.rice.kim.api.identity.Person;
 import org.kuali.rice.krad.uif.service.ViewHelperService;
 import org.kuali.rice.krad.util.GlobalVariables;
+import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.web.controller.UifControllerBase;
 import org.kuali.rice.krad.web.form.UifFormBase;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import za.ac.nwu.bonsai.service.impl.DashboardViewHelperServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Properties;
 
 @Controller
 @RequestMapping(value = "/dashboard")
@@ -59,5 +61,16 @@ public class DashboardController extends UifControllerBase {
         }
         form.getDialogManager().removeAllDialogs();
         return getUIFModelAndView(form);
+    }
+
+    @RequestMapping(params = "methodToCall=apply")
+    public ModelAndView apply(@ModelAttribute("KualiForm") UifFormBase form) throws Exception {
+
+        Properties urlParameters = new Properties();
+        urlParameters.put(KRADConstants.DISPATCH_REQUEST_PARAMETER, KRADConstants.DOC_HANDLER_METHOD);
+        urlParameters.put(KRADConstants.PARAMETER_COMMAND, "initiate");
+        urlParameters.put("viewId", "LeaveApplicationView");
+
+        return super.performRedirect(form, "leaveApplication", urlParameters);
     }
 }

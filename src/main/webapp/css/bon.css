@@ -1,3 +1,9 @@
 .bon-page {
     max-width: 1024px;
 }
+
+.apply-button {
+    float: right;
+    height: 100px;
+    width: 150px;
+}

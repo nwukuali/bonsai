@@ -9,6 +9,7 @@
         <property name="viewHelperServiceClass" value="za.ac.nwu.bonsai.service.impl.DashboardViewHelperServiceImpl"/>
         <property name="page.items">
             <list>
+
                 <bean parent="Uif-HorizontalBoxSection">
                     <property name="items">
                         <list>
@@ -17,7 +18,23 @@
                         </list>
                     </property>
                 </bean>
+
+                <bean parent="Uif-HorizontalBoxGroup" p:style="width: 60%;">
+                    <property name="items">
+                        <list>
+                            <bean parent="BON-PrimaryActionButton" p:actionLabel="Apply" p:methodToCall="apply" p:style="font-size: 40px;">
+                                <property name="cssClasses">
+                                    <list merge="true">
+                                        <value>apply-button</value>
+                                    </list>
+                                </property>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+
                 <ref bean="ActionListTable"/>
+
             </list>
         </property>
 
@@ -61,9 +78,9 @@
                     </property>
                     <property name="lineActions">
                         <list>
-                            <bean parent="Uif-SecondaryActionButton" p:actionLabel="View" p:methodToCall="showDocumentDialog"/>
-                            <bean parent="Uif-SecondaryActionButton" p:actionLabel="Approve"/>
-                            <bean parent="Uif-SecondaryActionButton" p:actionLabel="Disapprove"/>
+                            <bean parent="BON-SecondaryActionButton" p:actionLabel="View" p:methodToCall="showDocumentDialog"/>
+                            <bean parent="BON-SecondaryActionButton" p:actionLabel="Approve"/>
+                            <bean parent="BON-SecondaryActionButton" p:actionLabel="Disapprove"/>
                         </list>
                     </property>
                 </bean>
