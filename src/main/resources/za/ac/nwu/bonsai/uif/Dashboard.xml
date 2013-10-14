@@ -63,7 +63,6 @@
                 <bean parent="Uif-TableCollectionSection">
                     <property name="collectionObjectClass" value="za.ac.nwu.bonsai.util.ActionListWrapper"/>
                     <property name="propertyName" value="actionList"/>
-                    <property name="collectionLookup.quickfinderAction.render" value="false" />
                     <property name="renderAddLine" value="false"/>
                     <property name="layoutManager.renderSequenceField" value="false"/>
                     <property name="layoutManager.applyAlternatingRowStyles" value="false" />

@@ -38,10 +38,12 @@
 
   <param name="rice.portal.logout.redirectUrl">${application.url}/mvc/dashboard?viewId=DashboardView&amp;methodToCall=start</param>
 
-  <param name="filter.login.class">org.kuali.rice.kew.web.DummyLoginFilter</param>
+  <param name="filter.login.class">org.kuali.rice.krad.web.filter.DummyLoginFilter</param>
   <param name="filtermapping.login.1">/*</param>
 
   <param name="dev.mode">true</param>
+
+  <param name="bootstrap.spring.file">classpath:za/ac/nwu/bonsai/bootstrap-context.xml</param>
 
   <param name="datasource.ojb.platform">MySQL</param>
   <param name="datasource.url">jdbc:mysql://localhost:3306/bonsai</param>
